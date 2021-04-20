@@ -1,6 +1,4 @@
 ﻿using System;
-using OOP20;
-using OOP20.user;
 
 namespace Andruccioli
 {
