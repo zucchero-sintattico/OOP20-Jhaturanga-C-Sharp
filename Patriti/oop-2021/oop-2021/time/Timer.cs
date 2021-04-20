@@ -53,6 +53,7 @@ namespace oop_2021.time
 
         public void SwitchPlayer(IPlayer player)
         {
+            this.playersTimers.Remove(actualPlayerTimer);
             this.playersTimers.Add(actualPlayerTimer, GetRemaningTime(actualPlayerTimer));
             this.Start(player);
         }

@@ -9,11 +9,11 @@ namespace oop_2021.time
         {
         }
 
-        public Timer EqualTimer(List<Player> players, double duration)
+        public Timer EqualTimer(List<IPlayer> players, double duration)
         {
             Dictionary<IPlayer, Double> playerTimerMap = new Dictionary<IPlayer, double>();
 
-            players.ForEach((elem)=>playerTimerMap.Add(elem, duration));
+            players.ForEach((elem) => playerTimerMap.Add(elem, duration));
             return this.FromTimerMap(playerTimerMap);
         }
 

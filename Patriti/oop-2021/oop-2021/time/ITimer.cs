@@ -11,7 +11,7 @@ namespace oop_2021.time
             * 
             * <param name="player"> which you want starting time </param>
             */
-        void start(IPlayer player);
+        void Start(IPlayer player);
 
         /**
             * 

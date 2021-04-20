@@ -7,25 +7,53 @@ using Timer = oop_2021.time.Timer;
 
 namespace oop_2021
 {
-public class UnitTest1
-{
-        readonly static IPlayer player1 = new Player();
-        readonly static IPlayer player2 = new Player();
-        readonly Dictionary<IPlayer, double> mapTest = new Dictionary<IPlayer, double>()
+    public class TimerTest
     {
-        { player1, 10 },
-        { player2, 10 },
-    };
         [Fact]
-    public void TimerTest1()
-    {
-        ITimer timer = new Timer(mapTest);
+        public void TimerTest1()
+        {
 
-            Assert.Equal(10,(int)timer.GetRemaningTime(player1) );
+            IPlayer player1 = new Player();
+            IPlayer player2 = new Player();
+            Dictionary<IPlayer, double> mapTest = new Dictionary<IPlayer, double>(){
+                    { player1, 10 },
+                    { player2, 10 },
+                };
+
+            ITimer timer = new Timer(mapTest);
+
+            Assert.Equal(10, (int)timer.GetRemaningTime(player1));
             timer.Start(player1);
-            Console.WriteLine(timer.GetRemaningTime(player1));
             Thread.Sleep(1000);
-            Assert.Equal(8, (int)timer.GetRemaningTime(player1) );
+            Assert.Equal(8, (int)timer.GetRemaningTime(player1));
         }
-}
+
+
+
+        [Fact]
+        public void TimerTest2()
+        {
+            IPlayer player1 = new Player();
+            IPlayer player2 = new Player();
+
+            List<IPlayer> players = new List<IPlayer>
+            {
+                player1,
+                player2
+            };
+
+            TimerFactory timerFattory = new TimerFactory();
+            ITimer timer = timerFattory.EqualTimer(players, 10);
+
+            Assert.Equal(10, (int)timer.GetRemaningTime(player1));
+            timer.Start(player1);
+            timer.SwitchPlayer(player2);
+            Thread.Sleep(1000);
+            Assert.Equal(8, (int)timer.GetRemaningTime(player2));
+        }
+
+
+
+    }
+
 }

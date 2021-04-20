@@ -14,7 +14,7 @@ namespace oop_2021.time
         * <returns> timer</returns>
         */
 
-        Timer EqualTimer(List<Player> players, double duration);
+        Timer EqualTimer(List<IPlayer> players, double duration);
 
 
 
@@ -24,6 +24,6 @@ namespace oop_2021.time
         * <param> playersTimer to assign every player with a personal time</param>
         * <returns>timer</returns>
         */
-        Timer FromTimerMap(Dictionary<Player, Double> playersTimer);
+        Timer FromTimerMap(Dictionary<IPlayer, Double> playersTimer);
     }
 }
