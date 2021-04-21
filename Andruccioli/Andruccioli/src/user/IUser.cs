@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace OOP20.user
 {
     interface IUser
