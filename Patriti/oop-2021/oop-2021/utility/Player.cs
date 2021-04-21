@@ -1,5 +1,6 @@
 ﻿using System;
-namespace oop_2021.time
+namespace oop_2021.utility
+
 {
     public class Player : IPlayer
     {

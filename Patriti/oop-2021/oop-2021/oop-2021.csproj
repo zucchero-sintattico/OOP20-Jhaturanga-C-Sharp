@@ -16,5 +16,7 @@
 
   <ItemGroup>
     <Folder Include="time\" />
+    <Folder Include="utility\" />
+    <Folder Include="replay\" />
   </ItemGroup>
 </Project>
