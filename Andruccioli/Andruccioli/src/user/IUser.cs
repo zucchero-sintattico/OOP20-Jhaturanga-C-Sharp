@@ -1,7 +1,7 @@
 ﻿
 namespace OOP20.user
 {
-    interface IUser
+    public interface IUser
     {
         /// <returns>the name of the user that is unique and not null</returns>
         string Username { get; }

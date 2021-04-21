@@ -2,7 +2,7 @@
 
 namespace OOP20.user
 {
-    sealed class User : IUser
+    public sealed class User : IUser
     {
         private readonly string username;
         private readonly string? hashedPassword;
