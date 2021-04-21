@@ -9,7 +9,7 @@ namespace OOP20.userstorage
     /// it's a simply class that store the data in a Dictionary.
     /// When the program is closed, the data are erased.
     /// </summary>
-    class UserDataStorageInRAMStrategy : IUserDataStorageStrategy
+    public sealed class UserDataStorageInRAMStrategy : IUserDataStorageStrategy
     {
         private readonly IDictionary<string, IUser> users = new Dictionary<string, IUser>();
 
