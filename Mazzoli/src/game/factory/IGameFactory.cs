@@ -1,6 +1,12 @@
-interface IGameFactory
-{
-    IGame Classic(IPlayerPair playerPair);
+using Mazzoli.game;
+using Mazzoli.player;
 
-    IGame PawnHordeVariant(IPlayerPair playerPair);
+namespace Mazzoli.game.factory
+{
+    public interface IGameFactory
+    {
+        IGame Classic(IPlayerPair playerPair);
+
+        IGame PawnHordeVariant(IPlayerPair playerPair);
+    }
 }

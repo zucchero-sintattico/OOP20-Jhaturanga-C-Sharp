@@ -1,4 +1,7 @@
-enum MatchStatus
+namespace Mazzoli.match
 {
-    ACTIVE, ENDED
+    public enum MatchStatus
+    {
+        ACTIVE, ENDED
+    }
 }

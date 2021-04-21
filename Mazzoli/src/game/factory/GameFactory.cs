@@ -1,12 +1,18 @@
-class GameFactory : IGameFactory
-{
-    public IGame Classic(IPlayerPair playerPair)
-    {
-        return new Game(GameType.CLASSIC, null, null);
-    }
+using Mazzoli.game.type;
+using Mazzoli.player;
 
-    public IGame PawnHordeVariant(IPlayerPair playerPair)
+namespace Mazzoli.game.factory
+{
+    public class GameFactory : IGameFactory
     {
-        return new Game(GameType.PAWN_HORDE, null, null);
+        public IGame Classic(IPlayerPair playerPair)
+        {
+            return new Game(GameType.CLASSIC, null, null);
+        }
+
+        public IGame PawnHordeVariant(IPlayerPair playerPair)
+        {
+            return new Game(GameType.PAWN_HORDE, null, null);
+        }
     }
 }

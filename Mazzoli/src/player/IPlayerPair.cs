@@ -1,8 +1,12 @@
 using System.Collections.Generic;
-interface IPlayerPair
-{
-    IPlayer WhitePlayer { get; }
-    IPlayer BlackPlayer { get; }
-    IEnumerable<IPlayer> Enumerable();
 
+namespace Mazzoli.player
+{
+    public interface IPlayerPair
+    {
+        IPlayer WhitePlayer { get; }
+        IPlayer BlackPlayer { get; }
+        IEnumerable<IPlayer> Enumerable();
+
+    }
 }

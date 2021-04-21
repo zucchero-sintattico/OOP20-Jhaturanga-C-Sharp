@@ -1,19 +1,24 @@
-class Player : IPlayer
+using Mazzoli.player.piecefactory;
+using Mazzoli.player.user;
+
+namespace Mazzoli.player
 {
-    public PlayerColor Color { get; }
-    public IUser User { get; }
-    public IPieceFactory PieceFactory { get; }
-
-    public Player(IUser user, PlayerColor color)
+    public class Player : IPlayer
     {
-        this.User = user;
-        this.Color = color;
-        this.PieceFactory = new PieceFactory(this);
-    }
+        public PlayerColor Color { get; }
+        public IUser User { get; }
+        public IPieceFactory PieceFactory { get; }
 
-
-    public override string ToString()
-    {
-        return "PlayerImpl [color=" + this.Color + ", user=" + this.User + "]";
+        public Player(IUser user, PlayerColor color)
+        {
+            this.User = user;
+            this.Color = color;
+            this.PieceFactory = new PieceFactory(this);
+        }
+        
+        public override string ToString()
+        {
+            return "PlayerImpl [color=" + this.Color + ", user=" + this.User + "]";
+        }
     }
 }

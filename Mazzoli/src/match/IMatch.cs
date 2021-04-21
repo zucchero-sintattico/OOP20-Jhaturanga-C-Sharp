@@ -1,18 +1,27 @@
 using System.Collections.Generic;
-interface IMatch
+using Mazzoli.game;
+using Mazzoli.match.history;
+using Mazzoli.match.piece;
+using Mazzoli.match.timer;
+using Mazzoli.player;
+
+namespace Mazzoli.match
 {
-    string MatchID { get; }
-    IGame Game { get; }
-    IHistory History { get; }
-    ITimer Timer { get; }
+    public interface IMatch
+    {
+        string MatchId { get; }
+        IGame Game { get; }
+        IHistory History { get; }
+        ITimer Timer { get; }
 
 
-    void Start();
+        void Start();
 
-    MatchStatus GetMatchStatus();
-    MatchEndType? GetMatchEndType();
-    IPlayer GetWinner();
+        MatchStatus GetMatchStatus();
+        MatchEndType? GetMatchEndType();
+        IPlayer GetWinner();
 
-    void Resign(IPlayer player);
-    HashSet<IBoardPosition> GetPiecePossibleMoves(IPiece piece);
+        void Resign(IPlayer player);
+        HashSet<IBoardPosition> GetPiecePossibleMoves(IPiece piece);
+    }
 }

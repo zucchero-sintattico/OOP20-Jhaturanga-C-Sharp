@@ -1,9 +1,12 @@
-class PieceFactory : IPieceFactory
+namespace Mazzoli.player.piecefactory
 {
-    private IPlayer player;
-
-    public PieceFactory(IPlayer player)
+    public class PieceFactory : IPieceFactory
     {
-        this.player = player;
+        private IPlayer _player;
+
+        public PieceFactory(IPlayer player)
+        {
+            this._player = player;
+        }
     }
 }

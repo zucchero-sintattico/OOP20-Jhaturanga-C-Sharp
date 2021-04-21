@@ -1,11 +1,19 @@
-interface IGame
-{
-    GameType Type { get; }
-    IGameController Controller { get; }
-    IMovementManager MovementManager { get; }
+using Mazzoli.game.builder;
+using Mazzoli.game.controller;
+using Mazzoli.game.movementmanager;
+using Mazzoli.game.type;
 
-    static IGameBuilder Builder()
+namespace Mazzoli.game
+{
+    public interface IGame
     {
-        return new GameBuilder();
+        GameType Type { get; }
+        IGameController Controller { get; }
+        IMovementManager MovementManager { get; }
+
+        static IGameBuilder Builder()
+        {
+            return new GameBuilder();
+        }
     }
 }

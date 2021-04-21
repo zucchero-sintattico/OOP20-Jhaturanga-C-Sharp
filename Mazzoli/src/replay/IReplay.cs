@@ -1,4 +1,7 @@
-interface IReplay
+namespace Mazzoli.replay
 {
+    public interface IReplay
+    {
 
+    }
 }

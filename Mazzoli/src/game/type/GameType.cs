@@ -1,6 +1,8 @@
-enum GameType
+namespace Mazzoli.game.type
 {
-    CLASSIC,
-    PAWN_HORDE
-
+    public enum GameType
+    {
+        CLASSIC,
+        PAWN_HORDE
+    }
 }

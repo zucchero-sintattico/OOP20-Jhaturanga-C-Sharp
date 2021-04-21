@@ -1,3 +1,7 @@
+using Mazzoli.match;
+using Mazzoli.player.user;
+using Mazzoli.replay;
+
 class ApplicationInstance : IModel
 {
     public IUser FirstUser { get; set; }

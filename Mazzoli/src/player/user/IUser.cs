@@ -1,5 +1,8 @@
-interface IUser
+namespace Mazzoli.player.user
 {
-    string Username { get; }
+    public interface IUser
+    {
+        string Username { get; }
 
+    }
 }

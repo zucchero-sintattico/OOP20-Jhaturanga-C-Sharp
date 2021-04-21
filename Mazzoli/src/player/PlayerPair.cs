@@ -1,28 +1,32 @@
 using System.Collections.Generic;
-class PlayerPair : IPlayerPair
+
+namespace Mazzoli.player
 {
-    public IPlayer WhitePlayer { get; }
-    public IPlayer BlackPlayer { get; }
-
-    public PlayerPair(IPlayer whitePlayer, IPlayer blackPlayer)
+    public class PlayerPair : IPlayerPair
     {
-        if (!whitePlayer.Color.Equals(PlayerColor.WHITE))
+        public IPlayer WhitePlayer { get; }
+        public IPlayer BlackPlayer { get; }
+
+        public PlayerPair(IPlayer whitePlayer, IPlayer blackPlayer)
         {
-            throw new System.ArgumentException("White Player should be WHITE");
+            if (!whitePlayer.Color.Equals(PlayerColor.WHITE))
+            {
+                throw new System.ArgumentException("White Player should be WHITE");
+            }
+            if (!blackPlayer.Color.Equals(PlayerColor.BLACK))
+            {
+                throw new System.ArgumentException("Black Player should be BLACK");
+            }
+            this.WhitePlayer = whitePlayer;
+            this.BlackPlayer = blackPlayer;
         }
-        if (!blackPlayer.Color.Equals(PlayerColor.BLACK))
+
+        public IEnumerable<IPlayer> Enumerable()
         {
-            throw new System.ArgumentException("Black Player should be BLACK");
+            return new List<IPlayer>() { this.WhitePlayer, this.BlackPlayer };
         }
-        this.WhitePlayer = whitePlayer;
-        this.BlackPlayer = blackPlayer;
+
+
+
     }
-
-    public IEnumerable<IPlayer> Enumerable()
-    {
-        return new List<IPlayer>() { this.WhitePlayer, this.BlackPlayer };
-    }
-
-
-
 }

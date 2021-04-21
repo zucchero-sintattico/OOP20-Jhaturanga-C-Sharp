@@ -1,10 +1,13 @@
-class User : IUser
+namespace Mazzoli.player.user
 {
-    public string Username { get; }
-
-    public User(string username)
+    public class User : IUser
     {
-        this.Username = username;
-    }
+        public string Username { get; }
 
+        public User(string username)
+        {
+            this.Username = username;
+        }
+
+    }
 }

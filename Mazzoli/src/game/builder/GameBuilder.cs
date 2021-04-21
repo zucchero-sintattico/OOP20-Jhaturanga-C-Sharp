@@ -1,43 +1,52 @@
-class GameBuilder : IGameBuilder
+using Mazzoli.game.controller;
+using Mazzoli.game.movementmanager;
+using Mazzoli.game.type;
+
+namespace Mazzoli.game.builder
 {
-    private GameType? type;
-    private IGameController gameController;
-    private IMovementManager movementManager;
-
-    private bool built = false;
-
-    public IGameBuilder GameType(GameType type)
+    public class GameBuilder : IGameBuilder
     {
-        this.type = type;
-        return this;
-    }
+        private GameType? _type;
+        private IGameController _gameController;
+        private IMovementManager _movementManager;
 
-    public IGameBuilder GameController(IGameController gameController)
-    {
-        this.gameController = gameController;
-        return this;
-    }
+        private bool _built = false;
 
-    public IGameBuilder MovementManager(IMovementManager movementManager)
-    {
-        this.movementManager = movementManager;
-        return this;
-    }
-
-    public IGame build()
-    {
-        if (built)
+        public IGameBuilder GameType(GameType type)
         {
-            throw new System.SystemException("Alredy Built");
+            this._type = type;
+            return this;
         }
-        if (this.type == null || this.gameController == null || this.movementManager == null)
+
+        public IGameBuilder GameController(IGameController gameController)
         {
-            throw new System.SystemException("All fields must be specified");
+            this._gameController = gameController;
+            return this;
         }
-        this.built = true;
 
-        return new Game(this.type.GetValueOrDefault(), this.gameController, this.movementManager);
+        public IGameBuilder MovementManager(IMovementManager movementManager)
+        {
+            this._movementManager = movementManager;
+            return this;
+        }
+
+        public IGame Build()
+        {
+            if (_built)
+            {
+                throw new System.SystemException("Alredy Built");
+            }
+
+            if (this._type == null || this._gameController == null || this._movementManager == null)
+            {
+                throw new System.SystemException("All fields must be specified");
+            }
+
+            this._built = true;
+
+            return new Game(this._type.GetValueOrDefault(), this._gameController, this._movementManager);
+        }
+
+
     }
-
-
 }

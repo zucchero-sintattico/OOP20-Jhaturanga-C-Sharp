@@ -1,43 +1,51 @@
 using System.Collections.Generic;
+using Mazzoli.game;
+using Mazzoli.match.history;
+using Mazzoli.match.piece;
+using Mazzoli.match.timer;
+using Mazzoli.player;
 
-class Match : IMatch
+namespace Mazzoli.match
 {
-    public string MatchID { get; }
-
-    public IGame Game { get; }
-
-    public IHistory History { get; }
-
-    public ITimer Timer { get; }
-
-
-    public MatchEndType? GetMatchEndType()
+    public class Match : IMatch
     {
-        throw new System.NotImplementedException();
-    }
+        public string MatchId { get; }
 
-    public MatchStatus GetMatchStatus()
-    {
-        throw new System.NotImplementedException();
-    }
+        public IGame Game { get; }
 
-    public HashSet<IBoardPosition> GetPiecePossibleMoves(IPiece piece)
-    {
-        throw new System.NotImplementedException();
-    }
+        public IHistory History { get; }
 
-    public IPlayer GetWinner()
-    {
-        throw new System.NotImplementedException();
-    }
+        public ITimer Timer { get; }
 
-    public void Resign(IPlayer player)
-    {
-        throw new System.NotImplementedException();
-    }
 
-    public void Start()
-    {
-        throw new System.NotImplementedException();
+        public MatchEndType? GetMatchEndType()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public MatchStatus GetMatchStatus()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public HashSet<IBoardPosition> GetPiecePossibleMoves(IPiece piece)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IPlayer GetWinner()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Resign(IPlayer player)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Start()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
