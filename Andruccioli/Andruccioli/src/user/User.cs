@@ -10,7 +10,7 @@ namespace OOP20.user
         private int drawCount;
         private int lostCount;
 
-        public User(string username, string hashedPassword, int winCount, int drawCount, int lostCount)
+        public User(string username, string? hashedPassword, int winCount, int drawCount, int lostCount)
         {
             this.username = username;
             this.hashedPassword = hashedPassword;
