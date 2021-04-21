@@ -4,60 +4,54 @@ namespace OOP20.user
 {
     public sealed class User : IUser
     {
-        private readonly string username;
-        private readonly string? hashedPassword;
-        private int winCount;
-        private int drawCount;
-        private int lostCount;
-
         public User(string username, string? hashedPassword, int winCount, int drawCount, int lostCount)
         {
-            this.username = username;
-            this.hashedPassword = hashedPassword;
-            this.winCount = winCount;
-            this.drawCount = drawCount;
-            this.lostCount = lostCount;
+            this.Username = username;
+            this.HashedPassword = hashedPassword;
+            this.WinCount = winCount;
+            this.DrawCount = drawCount;
+            this.LostCount = lostCount;
         }
 
-        public string Username => username;
+        public string Username { get; }
 
-        public string? HashedPassword => hashedPassword;
+        public string? HashedPassword { get; }
 
-        public int WinCount => winCount;
+        public int WinCount { get; private set; }
 
-        public int LostCount => lostCount;
+        public int LostCount { get; private set; }
 
-        public int DrawCount => drawCount;
+        public int DrawCount { get; private set; }
 
-        public int PlayedMatchCount => winCount + drawCount + lostCount;
+        public int PlayedMatchCount => this.WinCount + this.DrawCount + this.LostCount;
+
+        public void IncreaseWinCount()
+        {
+            this.WinCount++;
+        }
 
         public void IncreaseDrawCount()
         {
-            this.drawCount++;
+            this.DrawCount++;
         }
 
         public void IncreaseLostCount()
         {
-            this.lostCount++;
-        }
-
-        public void IncreaseWinCount()
-        {
-            this.winCount++;
+            this.LostCount++;
         }
 
         public override bool Equals(object? obj)
         {
             return obj is User user &&
-                   username == user.username;
+                   this.Username == user.Username;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(username);
+            return HashCode.Combine(this.Username);
         }
 
-        public override string ToString() => "User: " + this.username + " win: " + this.winCount
-            + " draw: " + this.drawCount + " lost: " + this.lostCount;
+        public override string ToString() => "User: " + this.Username + " win: " + this.WinCount
+            + " draw: " + this.DrawCount + " lost: " + this.LostCount;
     }
 }
