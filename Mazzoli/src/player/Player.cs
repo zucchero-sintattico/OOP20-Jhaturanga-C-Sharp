@@ -1,10 +1,13 @@
-using Mazzoli.player.piecefactory;
-using Mazzoli.player.user;
+using Mazzoli.player.util;
 
 namespace Mazzoli.player
 {
+    /// <summary>
+    /// Implementation of the IPlayer interface.
+    /// </summary>
     public class Player : IPlayer
-    {
+    {   
+        
         public PlayerColor Color { get; }
         public IUser User { get; }
         public IPieceFactory PieceFactory { get; }

@@ -1,6 +1,11 @@
-interface IJavaFXView : IView
-{
-    IStage Stage { get; set; }
+using Mazzoli.mvc.view.javafx;
 
-    void Init();
+namespace Mazzoli.mvc.view
+{
+    public interface IJavaFXView : IView
+    {
+        IStage Stage { get; set; }
+
+        void Init();
+    }
 }

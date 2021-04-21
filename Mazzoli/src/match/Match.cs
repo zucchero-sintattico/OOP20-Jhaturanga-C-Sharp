@@ -16,14 +16,38 @@ namespace Mazzoli.match
         public IHistory History { get; }
 
         public ITimer Timer { get; }
+        
+        public IPlayerPair Players { get; }
 
+        private readonly IEnumerator<IPlayer> _playersTurnIterator;
+
+        public Match(IGame game)
+        {
+            this.MatchId = "";
+            this.Game = game;
+            this.Players = this.Game.Controller.Players;
+            this.History = null;
+            this.Timer = null;
+            this._playersTurnIterator = InfiniteStreamOfPlayers(this.Players).GetEnumerator();
+        }
+
+        private static IEnumerable<IPlayer> InfiniteStreamOfPlayers(IPlayerPair playerPair)
+        {
+            while (true)
+            {
+                foreach (var player in playerPair.Enumerable())
+                {
+                    yield return player;
+                }
+            }
+        }
 
         public MatchEndType? GetMatchEndType()
         {
             throw new System.NotImplementedException();
         }
 
-        public MatchStatus GetMatchStatus()
+        public MatchStatus? GetMatchStatus()
         {
             throw new System.NotImplementedException();
         }
@@ -33,7 +57,7 @@ namespace Mazzoli.match
             throw new System.NotImplementedException();
         }
 
-        public IPlayer GetWinner()
+        public  IPlayer GetWinner()
         {
             throw new System.NotImplementedException();
         }
@@ -45,7 +69,7 @@ namespace Mazzoli.match
 
         public void Start()
         {
-            throw new System.NotImplementedException();
+            this.Timer.Start();
         }
     }
 }

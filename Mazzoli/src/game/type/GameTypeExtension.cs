@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Mazzoli.game.factory;
-using Mazzoli.game.movementmanager;
 using Mazzoli.player;
 
 namespace Mazzoli.game.type
@@ -19,20 +18,20 @@ namespace Mazzoli.game.type
         {
             NameMapper = new Dictionary<GameType, string>()
             {
-                {GameType.CLASSIC, "Classic"},
-                {GameType.PAWN_HORDE, "Pawn Horde Variant"}
+                {GameType.Classic, "Classic"},
+                {GameType.PawnHorde, "Pawn Horde Variant"}
             };
 
             DescriptionMapper = new Dictionary<GameType, string>()
             {
-                {GameType.CLASSIC, "The classic chess game"},
-                {GameType.PAWN_HORDE, "The white player has an horde of pawns"}
+                {GameType.Classic, "The classic chess game"},
+                {GameType.PawnHorde, "The white player has an horde of pawns"}
             };
 
             GameGenerationStrategyMapper = new Dictionary<GameType, GameGenerationStrategy>()
             {
-                {GameType.CLASSIC, (gameFactory, playerPair) => gameFactory.Classic(playerPair)},
-                {GameType.PAWN_HORDE, (gameFactory, playerPair) => gameFactory.PawnHordeVariant(playerPair)}
+                {GameType.Classic, (gameFactory, playerPair) => gameFactory.Classic(playerPair)},
+                {GameType.PawnHorde, (gameFactory, playerPair) => gameFactory.PawnHordeVariant(playerPair)}
             };
         }
 

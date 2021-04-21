@@ -2,9 +2,9 @@ namespace Mazzoli.match
 {
     public enum MatchEndType
     {
-        CHECKMATE,
-        DRAW,
-        RESIGN,
-        TIMEOUT
+        Checkmate,
+        Draw,
+        Resign,
+        Timeout
     }
 }

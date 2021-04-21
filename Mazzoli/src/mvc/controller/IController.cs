@@ -1,7 +1,13 @@
-interface IController
+using Mazzoli.mvc.model;
+using Mazzoli.mvc.view;
+
+namespace Mazzoli.mvc.controller
 {
-    IModel Model { get; set; }
+    public interface IController
+    {
+        IModel Model { get; set; }
 
-    IView View { get; set; }
+        IView View { get; set; }
 
+    }
 }

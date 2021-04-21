@@ -13,11 +13,12 @@ namespace Mazzoli.match
         IGame Game { get; }
         IHistory History { get; }
         ITimer Timer { get; }
+        IPlayerPair Players { get; }
 
 
         void Start();
 
-        MatchStatus GetMatchStatus();
+        MatchStatus? GetMatchStatus();
         MatchEndType? GetMatchEndType();
         IPlayer GetWinner();
 

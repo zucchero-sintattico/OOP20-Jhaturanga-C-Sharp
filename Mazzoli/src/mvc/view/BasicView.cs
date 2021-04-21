@@ -1,4 +1,9 @@
-class BasicView : IView
+using Mazzoli.mvc.controller;
+
+namespace Mazzoli.mvc.view
 {
-    public IController Controller { get; set; }
+    public class BasicView : IView
+    {
+        public IController Controller { get; set; }
+    }
 }

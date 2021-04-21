@@ -1,4 +1,7 @@
-interface ILoadingController : IController
+namespace Mazzoli.mvc.controller.loading
 {
-    void Load();
+    public interface ILoadingController : IController
+    {
+        void Load();
+    }
 }

@@ -1,12 +1,17 @@
-class CommandLineLoadingView : BasicView, ICommandLineView
-{
-    public void Run()
-    {
-        this.GetLoadingController().Load();
-    }
+using Mazzoli.mvc.controller.loading;
 
-    private ILoadingController GetLoadingController()
+namespace Mazzoli.mvc.view.loading
+{
+    public class CommandLineLoadingView : BasicView, ICommandLineView
     {
-        return (ILoadingController)this.Controller;
+        public void Run()
+        {
+            this.GetLoadingController().Load();
+        }
+
+        private ILoadingController GetLoadingController()
+        {
+            return (ILoadingController)this.Controller;
+        }
     }
 }

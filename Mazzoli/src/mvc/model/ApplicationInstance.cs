@@ -1,12 +1,15 @@
 using Mazzoli.match;
-using Mazzoli.player.user;
+using Mazzoli.player.util;
 using Mazzoli.replay;
 
-class ApplicationInstance : IModel
+namespace Mazzoli.mvc.model
 {
-    public IUser FirstUser { get; set; }
-    public IUser SecondUser { get; set; }
-    public IMatch Match { get; set; }
-    public IReplay Replay { get; set; }
+    public class ApplicationInstance : IModel
+    {
+        public IUser FirstUser { get; set; }
+        public IUser SecondUser { get; set; }
+        public IMatch Match { get; set; }
+        public IReplay Replay { get; set; }
 
+    }
 }

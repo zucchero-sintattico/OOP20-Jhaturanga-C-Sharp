@@ -1,6 +1,6 @@
 ﻿using System;
 using Mazzoli.player;
-using Mazzoli.player.user;
+using Mazzoli.player.util;
 
 namespace Mazzoli
 {
@@ -11,8 +11,8 @@ namespace Mazzoli
             IUser first = new User("Alessandro");
             IUser second = new User("Stefano");
 
-            IPlayer white = new Player(first, PlayerColor.WHITE);
-            IPlayer black = new Player(second, PlayerColor.BLACK);
+            IPlayer white = new Player(first, PlayerColor.White);
+            IPlayer black = new Player(second, PlayerColor.Black);
 
             IPlayerPair pair = new PlayerPair(white, black);
             System.Console.WriteLine(pair.BlackPlayer.User.Username);

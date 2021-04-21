@@ -1,6 +1,5 @@
-using Mazzoli.game.controller;
-using Mazzoli.game.movementmanager;
 using Mazzoli.game.type;
+using Mazzoli.game.util;
 
 namespace Mazzoli.game.builder
 {

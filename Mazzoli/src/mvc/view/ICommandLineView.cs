@@ -1,4 +1,7 @@
-interface ICommandLineView : IView
+namespace Mazzoli.mvc.view
 {
-    void Run();
+    public interface ICommandLineView : IView
+    {
+        void Run();
+    }
 }

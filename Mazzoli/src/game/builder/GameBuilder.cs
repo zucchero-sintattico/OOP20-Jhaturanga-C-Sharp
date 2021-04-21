@@ -1,6 +1,5 @@
-using Mazzoli.game.controller;
-using Mazzoli.game.movementmanager;
 using Mazzoli.game.type;
+using Mazzoli.game.util;
 
 namespace Mazzoli.game.builder
 {
@@ -34,7 +33,7 @@ namespace Mazzoli.game.builder
         {
             if (_built)
             {
-                throw new System.SystemException("Alredy Built");
+                throw new System.SystemException("Already Built");
             }
 
             if (this._type == null || this._gameController == null || this._movementManager == null)

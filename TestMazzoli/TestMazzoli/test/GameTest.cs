@@ -1,5 +1,4 @@
 using Mazzoli.player;
-using Mazzoli.player.user;
 using NUnit.Framework;
 
 namespace TestMazzoli.test

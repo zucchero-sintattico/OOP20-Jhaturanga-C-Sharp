@@ -1,4 +1,4 @@
-namespace Mazzoli.player.piecefactory
+namespace Mazzoli.player.util
 {
     public class PieceFactory : IPieceFactory
     {
