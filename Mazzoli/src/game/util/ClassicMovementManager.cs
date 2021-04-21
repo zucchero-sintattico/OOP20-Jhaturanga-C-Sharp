@@ -2,9 +2,11 @@ namespace Mazzoli.game.util
 {
     public class ClassicMovementManager : IMovementManager
     {
+        private readonly IGameController _gameController;
+
         public ClassicMovementManager(IGameController gameController)
         {
-            throw new System.NotImplementedException();
+            _gameController = gameController;
         }
     }
 }

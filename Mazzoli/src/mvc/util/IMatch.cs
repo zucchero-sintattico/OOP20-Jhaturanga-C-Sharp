@@ -1,10 +1,10 @@
 namespace Mazzoli.mvc.util
 {
     /// <summary>
-    /// The replay, only interface
+    /// The Match, only interface
     /// </summary>
-    public interface IReplay
+    public interface IMatch
     {
-
+        
     }
 }
