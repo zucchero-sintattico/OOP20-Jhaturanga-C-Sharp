@@ -1,4 +1,8 @@
-﻿using System;
+﻿using OOP20.user;
+using OOP20.usermanager;
+using OOP20.userstorage;
+using System;
+using System.Collections.Generic;
 
 namespace OOP20
 {
@@ -6,7 +10,8 @@ namespace OOP20
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            IUsersManager manager = new UsersManager(new UserDataStorageInRAMStrategy());
+            
         }
     }
 }
