@@ -1,6 +1,20 @@
-interface IJavaFXView : IView
-{
-    IStage Stage { get; set; }
+using Mazzoli.mvc.util;
 
-    void Init();
+namespace Mazzoli.mvc.view
+{
+    /// <summary>
+    /// The template for a view used by JavaFX.
+    /// </summary>
+    public interface IJavaFxView : IView
+    {
+        /// <summary>
+        /// The Stage component.
+        /// </summary>
+        IStage Stage { get; set; }
+
+        /// <summary>
+        /// The initialize method.
+        /// </summary>
+        void Init();
+    }
 }

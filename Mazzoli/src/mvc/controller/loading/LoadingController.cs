@@ -1,7 +1,14 @@
-class LoadingController : BasicController, ILoadingController
+namespace Mazzoli.mvc.controller.loading
 {
-    public void Load()
+    /// <summary>
+    /// Basic implementation for the LoadingController.
+    /// </summary>
+    public class LoadingController : BasicController, ILoadingController
     {
-        //TODO: Add loading here
+        
+        public void Load()
+        {
+            //TODO: Add loading here
+        }
     }
 }

@@ -1,16 +1,12 @@
 
-/**
-* The color of the player.
-*/
-enum PlayerColor
+namespace Mazzoli.player
 {
-    /**
-    * White color
-    */
-    WHITE,
-
-    /**
-    * Black color
-    */
-    BLACK
+    /// <summary>
+    /// The possible colors of the players.
+    /// </summary>
+    public enum PlayerColor
+    {
+        White,
+        Black
+    }
 }

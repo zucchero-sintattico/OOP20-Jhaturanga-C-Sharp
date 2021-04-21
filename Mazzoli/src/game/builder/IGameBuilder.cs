@@ -1,10 +1,16 @@
-interface IGameBuilder
+using Mazzoli.game.type;
+using Mazzoli.game.util;
+
+namespace Mazzoli.game.builder
 {
-    IGameBuilder GameType(GameType type);
+    public interface IGameBuilder
+    {
+        IGameBuilder GameType(GameType type);
 
-    IGameBuilder GameController(IGameController gameController);
+        IGameBuilder GameController(IGameController gameController);
 
-    IGameBuilder MovementManager(IMovementManager movementManager);
+        IGameBuilder MovementManager(IMovementManager movementManager);
 
-    IGame build();
+        IGame Build();
+    }
 }

@@ -1,4 +1,12 @@
-class BasicView : IView
+using Mazzoli.mvc.controller;
+
+namespace Mazzoli.mvc.view
 {
-    public IController Controller { get; set; }
+    /// <summary>
+    /// Basic implementation of the interface View.
+    /// </summary>
+    public class BasicView : IView
+    {
+        public IController Controller { get; set; }
+    }
 }

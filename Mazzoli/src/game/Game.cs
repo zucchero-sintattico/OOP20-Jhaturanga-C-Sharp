@@ -1,15 +1,21 @@
-class Game : IGame
+using Mazzoli.game.type;
+using Mazzoli.game.util;
+
+namespace Mazzoli.game
 {
-    public GameType Type { get; }
-
-    public IGameController Controller { get; }
-
-    public IMovementManager MovementManager { get; }
-
-    public Game(GameType type, IGameController controller, IMovementManager movementManager)
+    public class Game : IGame
     {
-        this.Type = type;
-        this.Controller = controller;
-        this.MovementManager = movementManager;
+        public GameType Type { get; }
+
+        public IGameController Controller { get; }
+
+        public IMovementManager MovementManager { get; }
+
+        public Game(GameType type, IGameController controller, IMovementManager movementManager)
+        {
+            this.Type = type;
+            this.Controller = controller;
+            this.MovementManager = movementManager;
+        }
     }
 }

@@ -1,4 +1,0 @@
-enum MatchStatus
-{
-    ACTIVE, ENDED
-}

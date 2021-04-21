@@ -1,12 +1,24 @@
-class LoadingView : AbstractJavaFXView
-{
-    public override void Init()
-    {
-        this.GetLoadingController().Load();
-    }
+using Mazzoli.mvc.controller.loading;
 
-    private ILoadingController GetLoadingController()
+namespace Mazzoli.mvc.view.loading
+{
+    /// <summary>
+    /// The View where the application data is loaded.
+    /// </summary>
+    public class LoadingView : AbstractJavaFxView
     {
-        return (ILoadingController)this.Controller;
+        public override void Init()
+        {
+            this.GetLoadingController().Load();
+        }
+
+        /// <summary>
+        /// Get the LoadingController.
+        /// </summary>
+        /// <returns>The loading controller</returns>
+        private ILoadingController GetLoadingController()
+        {
+            return (ILoadingController)this.Controller;
+        }
     }
 }

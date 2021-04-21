@@ -1,4 +1,14 @@
-interface ILoadingController : IController
+namespace Mazzoli.mvc.controller.loading
 {
-    void Load();
+    /// <summary>
+    /// The controller for the loading page.
+    /// </summary>
+    public interface ILoadingController : IController
+    {
+        /// <summary>
+        /// Load the application's data. This method should be call on application
+        /// startup.
+        /// </summary>
+        void Load();
+    }
 }

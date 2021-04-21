@@ -1,4 +1,13 @@
-interface ICommandLineView : IView
+namespace Mazzoli.mvc.view
 {
-    void Run();
+    /// <summary>
+    /// The template for a command line view.
+    /// </summary>
+    public interface ICommandLineView : IView
+    {
+        /// <summary>
+        /// Starts the view loop
+        /// </summary>
+        void Run();
+    }
 }

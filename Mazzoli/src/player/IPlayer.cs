@@ -1,8 +1,27 @@
-interface IPlayer
+using Mazzoli.player.util;
+
+namespace Mazzoli.player
 {
-    PlayerColor Color { get; }
-    IUser User { get; }
-    IPieceFactory PieceFactory { get; }
+    /// <summary>
+    /// The Player Entity.
+    /// </summary>
+    public interface IPlayer
+    {
+        /// <summary>
+        /// The color of the player
+        /// </summary>
+        PlayerColor Color { get; }
+        
+        /// <summary>
+        /// The User attached to this player;
+        /// </summary>
+        IUser User { get; }
+        
+        /// <summary>
+        /// The PieceFactory of this player.
+        /// </summary>
+        IPieceFactory PieceFactory { get; }
 
 
+    }
 }
