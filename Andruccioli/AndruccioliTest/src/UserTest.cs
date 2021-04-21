@@ -2,7 +2,7 @@ using OOP20.user;
 using System;
 using Xunit;
 
-namespace AndruccioliTest
+namespace Test
 {
     public class UserTest
     {
