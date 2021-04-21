@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31213.239
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Andruccioli", "Andruccioli\Andruccioli.csproj", "{A106C265-27C0-455F-A5D4-E742F362CAF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Andruccioli", "Andruccioli\Andruccioli.csproj", "{A106C265-27C0-455F-A5D4-E742F362CAF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndruccioliTest", "AndruccioliTest\AndruccioliTest.csproj", "{63278B25-C1F9-429A-96F9-158C078D9791}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A106C265-27C0-455F-A5D4-E742F362CAF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A106C265-27C0-455F-A5D4-E742F362CAF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A106C265-27C0-455F-A5D4-E742F362CAF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63278B25-C1F9-429A-96F9-158C078D9791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63278B25-C1F9-429A-96F9-158C078D9791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63278B25-C1F9-429A-96F9-158C078D9791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63278B25-C1F9-429A-96F9-158C078D9791}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
