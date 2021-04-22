@@ -94,11 +94,32 @@ namespace Jhaturanga_CSharp.Test
         }
 
         [Test]
+        public void TestKnight()
+        {
+            IBoardBuilder boardBuilder = new BoardBuilder();
+
+            IBoard board = boardBuilder
+                .Columns(8)
+                .Rows(8)
+                .AddPiece(new Piece(PieceType.KNIGHT, new BoardPosition(3, 3), this.whitePlayer))
+                .Build();
+
+            IPieceMovementStrategies pms = new ClassicPieceMovementStrategies();
+
+            Assert.False(pms.PieceMovementStrategy(board.GetPieceAtPosition(new BoardPosition(3, 3))).GetPossibleMoves(board).Contains(new BoardPosition(3, 5)));
+            Assert.True(pms.PieceMovementStrategy(board.GetPieceAtPosition(new BoardPosition(3, 3))).GetPossibleMoves(board).Contains(new BoardPosition(1, 4)));
+            Assert.False(pms.PieceMovementStrategy(board.GetPieceAtPosition(new BoardPosition(3, 3))).GetPossibleMoves(board).Contains(new BoardPosition(1, 5)));
+        }
+
+        [Test]
         public void TestRook()
         {
             IBoardBuilder boardBuilder = new BoardBuilder();
 
-            IBoard board = boardBuilder.Columns(8).Rows(8).AddPiece(new Piece(PieceType.ROOK, new BoardPosition(2, 5), this.whitePlayer)).Build();
+            IBoard board = boardBuilder
+                .Columns(8)
+                .Rows(8)
+                .AddPiece(new Piece(PieceType.ROOK, new BoardPosition(2, 5), this.whitePlayer)).Build();
 
             IPieceMovementStrategies pms = new ClassicPieceMovementStrategies();
 

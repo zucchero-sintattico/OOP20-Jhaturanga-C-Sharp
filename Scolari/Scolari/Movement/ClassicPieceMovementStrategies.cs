@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Jhaturanga_CSharp.Movement;
+using System.Linq;
 using Jhaturanga_CSharp.Boards;
 using Jhaturanga_CSharp.Movement.MovementManaging;
 using Jhaturanga_CSharp.Pieces;
@@ -23,53 +24,36 @@ namespace Jhaturanga_CSharp
 
             public  ISet<IBoardPosition> GetPossibleMoves(IBoard board)
             {
-                ISet<IBoardPosition> positions = new HashSet<IBoardPosition>();
-                
                 int yIncrement = piece.Player.Color.Equals(PlayerColor.WHITE) ? SINGLE_INCREMENT
                         : -SINGLE_INCREMENT;
 
                 Predicate<IBoardPosition> OnlyIfEnemyIsPresent = (x) => board.GetPieceAtPosition(x) != null
                         && !board.GetPieceAtPosition(x).Player.Equals(piece.Player);
 
-                ISet<IBoardPosition> destinations1 = AbstractPieceMovementStrategies.DestinationsFromFunction(pos => new BoardPosition(pos.X + SINGLE_INCREMENT, pos.Y + yIncrement), piece, board, SINGLE_INCREMENT);
-                ISet<IBoardPosition> destinations2 = AbstractPieceMovementStrategies.DestinationsFromFunction(pos => new BoardPosition(pos.X + -SINGLE_INCREMENT, pos.Y + yIncrement), piece, board, SINGLE_INCREMENT);
+                ISet<IBoardPosition> possibleDestinations = new HashSet<IBoardPosition>();
 
-                foreach (IBoardPosition pos in destinations2)
-                {
-                    destinations1.Add(pos);
-                }
+                possibleDestinations.UnionWith(AbstractPieceMovementStrategies.DestinationsFromFunction(
+                    pos => new BoardPosition(pos.X + SINGLE_INCREMENT, pos.Y + yIncrement), piece, board, SINGLE_INCREMENT));
+                possibleDestinations.UnionWith(AbstractPieceMovementStrategies.DestinationsFromFunction(
+                    pos => new BoardPosition(pos.X + -SINGLE_INCREMENT, pos.Y + yIncrement), piece, board, SINGLE_INCREMENT));               
 
-                ISet<IBoardPosition> finalDestinations = new HashSet<IBoardPosition>();
-
-                foreach (IBoardPosition pos in destinations1)
-                {
-                    if(OnlyIfEnemyIsPresent(pos))
-                    {
-                        destinations1.Add(pos);
-                    }   
-                }
+                ISet<IBoardPosition> finalDestinations = possibleDestinations.Cast<IBoardPosition>().Where(pos => OnlyIfEnemyIsPresent(pos)).ToHashSet();
 
                 BoardPosition front = new BoardPosition(piece.PiecePosition.X,
                         piece.PiecePosition.Y + yIncrement);
 
                 if (board.Contains(front) && board.GetPieceAtPosition(front) == null)
                 {
-                    positions.Add(front);
+                    finalDestinations.Add(front);
                 }
 
                 if (!piece.HasMoved && board.GetPieceAtPosition(front) == null && board
                         .GetPieceAtPosition(new BoardPosition(front.X, front.Y + yIncrement)) == null)
                 {
-
-                    foreach(IBoardPosition pos in AbstractPieceMovementStrategies.DestinationsFromFunction(pos => new BoardPosition(pos.X, pos.Y + yIncrement), piece, board, DOUBLE_INCREMENT))
-                    {
-                        positions.Add(pos);
-                    }
-
-                
+                        finalDestinations.UnionWith(AbstractPieceMovementStrategies.DestinationsFromFunction(
+                        pos => new BoardPosition(pos.X, pos.Y + yIncrement), piece, board, DOUBLE_INCREMENT));
                 }
-
-                return positions;
+                return finalDestinations;
             }
         }
 
@@ -128,7 +112,6 @@ namespace Jhaturanga_CSharp
 
             public ISet<IBoardPosition> GetPossibleMoves(IBoard board)
             {
-                int limit = board.Columns + board.Rows;
                 ISet<IBoardPosition> positions = new HashSet<IBoardPosition>();
 
                 positions.UnionWith(movStr.PieceMovementStrategy(new Piece(PieceType.ROOK, piece.PiecePosition, piece.Player)).GetPossibleMoves(board));
@@ -151,17 +134,14 @@ namespace Jhaturanga_CSharp
             public ISet<IBoardPosition> GetPossibleMoves(IBoard board)
             {
                 ISet<IBoardPosition> positions = new HashSet<IBoardPosition>();
-                IList<int> directions1 = new List<int>() { SINGLE_INCREMENT , -SINGLE_INCREMENT };
-                IList<int> directions2 = new List<int>() { DOUBLE_INCREMENT, -DOUBLE_INCREMENT };
-
-                foreach(int single in directions1)
-                {
-                    foreach(int byTwo in directions2)
+                new List<int>() { SINGLE_INCREMENT, -SINGLE_INCREMENT }.ForEach(single => {
+                    new List<int>() { DOUBLE_INCREMENT, -DOUBLE_INCREMENT }.ForEach(byTwo =>
                     {
-                        positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + single, pos.Y + byTwo), piece, board, SINGLE_INCREMENT));
-                        positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + byTwo, pos.Y + single), piece, board, SINGLE_INCREMENT));
-                    }
-                }
+                        positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + single, pos.Y + byTwo), this.piece, board, SINGLE_INCREMENT));
+                        positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + byTwo, pos.Y + single), this.piece, board, SINGLE_INCREMENT));
+                    });
+                });
+
                 return positions;
             }
         }
