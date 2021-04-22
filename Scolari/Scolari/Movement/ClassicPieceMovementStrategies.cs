@@ -134,14 +134,13 @@ namespace Jhaturanga_CSharp
             public ISet<IBoardPosition> GetPossibleMoves(IBoard board)
             {
                 ISet<IBoardPosition> positions = new HashSet<IBoardPosition>();
-                new List<int>() { SINGLE_INCREMENT , -SINGLE_INCREMENT }.ForEach(single =>
+                new List<int>() { SINGLE_INCREMENT, -SINGLE_INCREMENT }.ForEach(single => {
+                    new List<int>() { DOUBLE_INCREMENT, -DOUBLE_INCREMENT }.ForEach(byTwo =>
                     {
-                        new List<int>() { DOUBLE_INCREMENT, -DOUBLE_INCREMENT }.ForEach(byTwo =>
-                        {
-                            positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + single, pos.Y + byTwo), piece, board, SINGLE_INCREMENT));
-                            positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + byTwo, pos.Y + single), piece, board, SINGLE_INCREMENT));
-                        });
+                        positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + single, pos.Y + byTwo), this.piece, board, SINGLE_INCREMENT));
+                        positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + byTwo, pos.Y + single), this.piece, board, SINGLE_INCREMENT));
                     });
+                });
 
                 return positions;
             }

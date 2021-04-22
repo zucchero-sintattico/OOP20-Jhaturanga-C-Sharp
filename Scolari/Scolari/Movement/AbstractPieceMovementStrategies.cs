@@ -30,7 +30,7 @@ namespace Jhaturanga_CSharp.Movement
             return piece.Type switch
             {
                 PieceType.BISHOP => this.BishopMovementStrategy(piece),
-                PieceType.KNIGHT => this.BishopMovementStrategy(piece),
+                PieceType.KNIGHT => this.KnightMovementStrategy(piece),
                 PieceType.ROOK => this.RookMovementStrategy(piece),
                 PieceType.KING => this.KingMovementStrategy(piece),
                 PieceType.QUEEN => this.QueenMovementStrategy(piece),
