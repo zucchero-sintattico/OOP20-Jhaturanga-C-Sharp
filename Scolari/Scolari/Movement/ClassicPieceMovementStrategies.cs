@@ -112,7 +112,6 @@ namespace Jhaturanga_CSharp
 
             public ISet<IBoardPosition> GetPossibleMoves(IBoard board)
             {
-                int limit = board.Columns + board.Rows;
                 ISet<IBoardPosition> positions = new HashSet<IBoardPosition>();
 
                 positions.UnionWith(movStr.PieceMovementStrategy(new Piece(PieceType.ROOK, piece.PiecePosition, piece.Player)).GetPossibleMoves(board));
@@ -135,17 +134,15 @@ namespace Jhaturanga_CSharp
             public ISet<IBoardPosition> GetPossibleMoves(IBoard board)
             {
                 ISet<IBoardPosition> positions = new HashSet<IBoardPosition>();
-                IList<int> directions1 = new List<int>() { SINGLE_INCREMENT , -SINGLE_INCREMENT };
-                IList<int> directions2 = new List<int>() { DOUBLE_INCREMENT, -DOUBLE_INCREMENT };
-
-                foreach(int single in directions1)
-                {
-                    foreach(int byTwo in directions2)
+                new List<int>() { SINGLE_INCREMENT , -SINGLE_INCREMENT }.ForEach(single =>
                     {
-                        positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + single, pos.Y + byTwo), piece, board, SINGLE_INCREMENT));
-                        positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + byTwo, pos.Y + single), piece, board, SINGLE_INCREMENT));
-                    }
-                }
+                        new List<int>() { DOUBLE_INCREMENT, -DOUBLE_INCREMENT }.ForEach(byTwo =>
+                        {
+                            positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + single, pos.Y + byTwo), piece, board, SINGLE_INCREMENT));
+                            positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + byTwo, pos.Y + single), piece, board, SINGLE_INCREMENT));
+                        });
+                    });
+
                 return positions;
             }
         }
