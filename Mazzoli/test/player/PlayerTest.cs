@@ -2,7 +2,7 @@ using Mazzoli.player;
 using Mazzoli.player.util;
 using NUnit.Framework;
 
-namespace Mazzoli.test
+namespace Mazzoli.test.player
 {
     
     public class PlayerTest

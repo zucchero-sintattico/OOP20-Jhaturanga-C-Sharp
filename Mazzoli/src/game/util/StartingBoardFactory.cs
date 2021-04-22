@@ -6,12 +6,12 @@ namespace Mazzoli.game.util
     {
         public IBoard ClassicBoard(IPlayerPair players)
         {
-            throw new System.NotImplementedException();
+            return null;
         }
 
         public IBoard PawnHordeBoard(object players)
         {
-            throw new System.NotImplementedException();
+            return null;
         }
     }
 }

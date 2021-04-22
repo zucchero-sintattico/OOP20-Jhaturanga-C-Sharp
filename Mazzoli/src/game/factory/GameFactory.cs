@@ -30,10 +30,10 @@ namespace Mazzoli.game.factory
         
         public IGame Classic(IPlayerPair playerPair) =>
             this.AllClassicApartFromMovementStrategy(playerPair, new ClassicWithCastlingPieceMovementStrategies(),
-                GameType.Classic);
+                GameType.CLASSIC);
 
         public IGame PawnHordeVariant(IPlayerPair playerPair) =>
             AllClassicDifferentBoard(playerPair, this._startingBoardFactory.PawnHordeBoard(playerPair),
-                GameType.PawnHorde);
+                GameType.PAWN_HORDE);
     }
 }
