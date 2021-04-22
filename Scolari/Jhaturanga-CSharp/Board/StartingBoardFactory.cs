@@ -10,7 +10,6 @@ namespace Jhaturanga_CSharp.Board
         private static readonly int CLASSIC_BOARD_COLUMNS = 8;
         private static readonly int CLASSIC_BOARD_ROWS = 8;
         private static readonly int ONE_D_BOARD_COLUMNS = 1;
-        private static readonly int ROWS_OF_PAWNS = 4;
         private static readonly int THREECOL_BOARD_COLUMNS = 3;
 
         private static readonly IDictionary<string, PieceType> letterToPieceType = new Dictionary<string, PieceType>() { { "k", PieceType.KING }, { "q", PieceType.QUEEN }, { "b",

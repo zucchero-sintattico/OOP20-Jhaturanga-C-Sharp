@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jhaturanga_CSharp.Pieces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
