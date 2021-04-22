@@ -1,4 +1,4 @@
-﻿using Jhaturanga_CSharp.Movement.MovementManager;
+﻿using Jhaturanga_CSharp.Movement.MovementManaging;
 using System;
 using System.Collections.Generic;
 using System.Text;

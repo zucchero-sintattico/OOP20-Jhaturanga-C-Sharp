@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using Jhaturanga_CSharp.Movement;
 using Jhaturanga_CSharp.Board;
+using Jhaturanga_CSharp.Movement.MovementManaging;
+using Jhaturanga_CSharp.Pieces;
 
 namespace Jhaturanga_CSharp
 {
@@ -73,7 +75,7 @@ namespace Jhaturanga_CSharp
 
         private class KingStrategy : IMovementStrategy
         {
-
+            private readonly IPieceMovementStrategies movStr = new ClassicPieceMovementStrategies();
             private readonly IPiece piece;
             private readonly int SINGLE_INCREMENT = 1;
             private readonly int DOUBLE_INCREMENT = 2;
@@ -86,32 +88,47 @@ namespace Jhaturanga_CSharp
             {
                 ISet<IBoardPosition> positions = new HashSet<IBoardPosition>();
 
-                foreach(IBoardPosition pos in Queen)
-
-                positions.addAll(this.getQueenMovementStrategy(piece).getPossibleMoves(board).stream()
-                        .filter(pos-> this.pieceDistanceFromPositionLessThan(piece, pos, SINGLE_INCREMENT))
-                        .collect(Collectors.toSet()));
-
-                if (!piece.hasAlreadyBeenMoved())
+                foreach(IBoardPosition pos in movStr.PieceMovementStrategy(new Piece(PieceType.QUEEN, this.piece.PiecePosition, piece.Player)).GetPossibleMoves(board))
                 {
-                    positions.addAll(Stream.concat(
-                            super.getDestinationsFromFunction(
-                                    pos-> new BoardPositionImpl(pos.getX() - SINGLE_INCREMENT, pos.getY()), piece, board,
-                                    DOUBLE_INCREMENT).stream(),
-                            super.getDestinationsFromFunction(
-                                    pos-> new BoardPositionImpl(pos.getX() + SINGLE_INCREMENT, pos.getY()), piece, board,
-                                    DOUBLE_INCREMENT).stream())
-                            .collect(Collectors.toSet()));
-                    // Extra control on the castle
-                    board.getPieceAtPosition(new BoardPositionImpl(piece.getPiecePosition().getX() - DOUBLE_INCREMENT,
-                            piece.getPiecePosition().getY())).ifPresent(p->positions.remove(p.getPiecePosition()));
-
-                    board.getPieceAtPosition(new BoardPositionImpl(piece.getPiecePosition().getX() + DOUBLE_INCREMENT,
-                            piece.getPiecePosition().getY())).ifPresent(p->positions.remove(p.getPiecePosition()));
+                    if(PieceDistanceFromPositionLessThan(piece, pos, SINGLE_INCREMENT))
+                    {
+                        positions.Add(pos);
+                    }
                 }
-                return Collections.unmodifiableSet(positions);
+
+                if (!piece.HasMoved)
+                {      
+                    positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X - SINGLE_INCREMENT, pos.Y), piece, board, DOUBLE_INCREMENT));
+                    positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + SINGLE_INCREMENT, pos.Y), piece, board, DOUBLE_INCREMENT));
+
+                    IPiece firstPieceToCheck = board.GetPieceAtPosition(new BoardPosition(piece.PiecePosition.X - DOUBLE_INCREMENT, piece.PiecePosition.Y));
+                    IPiece secondPieceToCheck = board.GetPieceAtPosition(new BoardPosition(piece.PiecePosition.X + DOUBLE_INCREMENT, piece.PiecePosition.Y));
+                    // Extra control on the castle
+                    if (firstPieceToCheck != null)
+                        {
+                        positions.Remove(firstPieceToCheck.PiecePosition);
+                    } 
+                    if(secondPieceToCheck != null)
+                    {
+                        positions.Remove(secondPieceToCheck.PiecePosition);
+                    }
+                }
+                return positions;
             }
         }
+
+        public static bool PieceDistanceFromPositionLessThan(IPiece piece,
+        IBoardPosition positionFromWhichCalculateDistance, int distanceMathModule)
+        {
+            return DistanceBetweenBoardPositions(piece.PiecePosition, positionFromWhichCalculateDistance).X <= distanceMathModule
+                    && DistanceBetweenBoardPositions(piece.PiecePosition, positionFromWhichCalculateDistance).Y <= distanceMathModule;
+        }
+
+        public static IBoardPosition DistanceBetweenBoardPositions(IBoardPosition p1, IBoardPosition p2)
+        {
+            return new BoardPosition(Math.Abs(p1.X - p2.X), Math.Abs(p1.Y - p2.Y));
+        }
+
         protected override IMovementStrategy BishopMovementStrategy(IPiece piece)
         {
             return new BishopStrategy(piece);

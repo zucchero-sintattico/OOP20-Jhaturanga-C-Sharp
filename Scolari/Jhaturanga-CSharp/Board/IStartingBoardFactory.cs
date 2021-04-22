@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Jhaturanga_CSharp.Movement.MovementManager;
+using Jhaturanga_CSharp.Movement.MovementManaging;
 
 namespace Jhaturanga_CSharp.Board
 {

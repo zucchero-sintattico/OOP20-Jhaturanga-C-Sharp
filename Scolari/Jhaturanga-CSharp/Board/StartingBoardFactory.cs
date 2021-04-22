@@ -1,13 +1,12 @@
-﻿using Jhaturanga_CSharp.Movement.MovementManager;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Jhaturanga_CSharp.Movement.MovementManaging;
 
 namespace Jhaturanga_CSharp.Board
 {
     class StartingBoardFactory : IStartingBoardFactory
     {
-
         private static readonly int CLASSIC_BOARD_COLUMNS = 8;
         private static readonly int CLASSIC_BOARD_ROWS = 8;
         private static readonly int ONE_D_BOARD_COLUMNS = 1;

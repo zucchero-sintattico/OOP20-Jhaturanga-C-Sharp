@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using System.Collections;
 using System.Linq;
-using Jhaturanga_CSharp.Movement.MovementManager;
+using Jhaturanga_CSharp.Movement.MovementManaging;
 using Jhaturanga_CSharp.Movement;
 using Jhaturanga_CSharp.Board;
 
 namespace Jhaturanga_CSharp.Movement
 {
-    abstract class AbstractPieceMovementStrategies : IPieceMovementStrategies
+    public abstract class AbstractPieceMovementStrategies : IPieceMovementStrategies
     {
         public static IEnumerable<T> Iterate<T>(T seed, Func<T, T> unaryOperator)
         {
@@ -23,27 +23,20 @@ namespace Jhaturanga_CSharp.Movement
         private readonly Func<KeyValuePair<IBoardPosition, KeyValuePair<int, int>>, IBoardPosition> SumBoardPosWithPair = (p) => new BoardPosition(p.Key.X + p.Value.Key, p.Key.Y + p.Value.Value);
         private Func<KeyValuePair<int, int>, Func<IBoardPosition, IBoardPosition>> FuncFromAxis => (axis) => (p) => SumBoardPosWithPair(new KeyValuePair<IBoardPosition, KeyValuePair<int,int>>(p,axis));
 
-        private readonly Func<IBoard, int> fromBoardToMaximumLimit = (board) => board.Rows + board.Columns;
+        private readonly Func<IBoard, int> FromBoardToMaximumLimit = (board) => board.Rows + board.Columns;
 
         public IMovementStrategy PieceMovementStrategy(IPiece piece)
         {
-            switch(piece.Type)
+            return piece.Type switch
             {
-                case PieceType.BISHOP:
-                    return this.BishopMovementStrategy(piece);
-                case PieceType.KNIGHT:
-                    return this.BishopMovementStrategy(piece);
-                case PieceType.ROOK:
-                    return this.RookMovementStrategy(piece);
-                case PieceType.KING:
-                    return this.KingMovementStrategy(piece);
-                case PieceType.QUEEN:
-                    return this.QueenMovementStrategy(piece);
-                case PieceType.PAWN:
-                    return this.PawnMovementStrategy(piece);
-                default:
-                    return null;
-            }
+                PieceType.BISHOP => this.BishopMovementStrategy(piece),
+                PieceType.KNIGHT => this.BishopMovementStrategy(piece),
+                PieceType.ROOK => this.RookMovementStrategy(piece),
+                PieceType.KING => this.KingMovementStrategy(piece),
+                PieceType.QUEEN => this.QueenMovementStrategy(piece),
+                PieceType.PAWN => this.PawnMovementStrategy(piece),
+                _ => null,
+            };
         }
 
         protected static ISet<IBoardPosition> DestinationsFromFunction(Func<IBoardPosition, IBoardPosition> function, IPiece piece, IBoard board, int limit)

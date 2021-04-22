@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Jhaturanga_CSharp.Board; 
+using Jhaturanga_CSharp.Board;
+using Jhaturanga_CSharp.Movement.MovementManaging;
 
-namespace Jhaturanga_CSharp
+namespace Jhaturanga_CSharp.Pieces
 {
     public class Piece : IPiece
     {
@@ -17,7 +18,7 @@ namespace Jhaturanga_CSharp
 
         public bool HasMoved { get; set; }
 
-        public Piece(PieceType pieceType, BoardPosition pieceActualBoardPosition,
+        public Piece(PieceType pieceType, IBoardPosition pieceActualBoardPosition,
             IPlayer piecePlayerOwner)
         {
             this.Identifier = pieceType.ToString() + "-" + piecePlayerOwner.ToString() + "-" + pieceActualBoardPosition.ToString();
