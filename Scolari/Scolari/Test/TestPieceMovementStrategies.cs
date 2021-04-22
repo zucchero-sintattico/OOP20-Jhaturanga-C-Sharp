@@ -8,7 +8,7 @@ using System;
 namespace Jhaturanga_CSharp.Test
 {
 
-    public class TestPieceMovement
+    public class TestPieceMovementStrategies
     {
 
         private readonly IPlayer whitePlayer = new Player(null, PlayerColor.WHITE);
