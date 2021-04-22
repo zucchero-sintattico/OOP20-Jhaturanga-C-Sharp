@@ -1,17 +1,12 @@
-﻿using OOP20.user;
-using OOP20.usermanager;
-using OOP20.userstorage;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace OOP20
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            IUsersManager manager = new UsersManager(new UserDataStorageInRAMStrategy());
-            
+
         }
     }
 }
