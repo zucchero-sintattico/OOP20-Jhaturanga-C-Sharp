@@ -30,8 +30,7 @@ namespace Jhaturanga_CSharp.Board
 
         public IBoard Build()
         {
-            this.piecesOnBoard.Add(piece);
-            return this;
+            return new Board(this.piecesOnBoard, this.columns, this.rows);
         }
 
     }

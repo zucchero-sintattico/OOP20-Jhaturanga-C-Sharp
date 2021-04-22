@@ -1,22 +1,19 @@
 ﻿using Jhaturanga_CSharp.Board;
-using Jhaturanga_CSharp.Movement.MovementManaging;
 using Jhaturanga_CSharp.Movement;
+using Jhaturanga_CSharp.Movement.MovementManaging;
 using Jhaturanga_CSharp.Pieces;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+using NUnit.Framework;
 
 namespace Jhaturanga_CSharp.Test
 {
-    
+
     public class TestPiece
     {
 
         private readonly IPlayer whitePlayer = new Player(null, PlayerColor.WHITE);
         private readonly IPlayer blackPlayer = new Player(null, PlayerColor.BLACK);
 
-        [Fact]
+        [Test]
         public void TestBoard()
         {
             IBoardBuilder boardBuilder = new BoardBuilder();
@@ -26,7 +23,7 @@ namespace Jhaturanga_CSharp.Test
             IPieceMovementStrategies pms = new ClassicPieceMovementStrategies();
 
             Assert.True(pms.PieceMovementStrategy(board.GetPieceAtPosition(new BoardPosition(0,0))).GetPossibleMoves(board).Contains(new BoardPosition(7,7)));
-
+            Assert.True(true);
         }
     }
 }
