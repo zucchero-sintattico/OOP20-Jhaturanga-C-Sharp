@@ -7,14 +7,12 @@ namespace Jhaturanga_CSharp.Boards
     public interface IBoardPosition
     {
         /// <summary>
-        /// 
+        /// Use this method to return the X position
         /// </summary>
-        /// <returns>The X position</returns>
         int X { get; }
         /// <summary>
-        /// Use this method to return th
+        /// Use this method to return the Y position
         /// </summary>
-        /// <returns>The Y position</returns>
         int Y { get; }
     }
 }
