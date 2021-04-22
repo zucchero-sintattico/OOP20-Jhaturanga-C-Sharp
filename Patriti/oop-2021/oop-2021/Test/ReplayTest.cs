@@ -11,7 +11,7 @@ namespace oop_2021
 
 
         [Fact]
-        void ReplayTest1()
+        public void ReplayTest1()
         {
             ReplayData replay = new ReplayDataBuilder()
                 .Date(DateTime.Now)
