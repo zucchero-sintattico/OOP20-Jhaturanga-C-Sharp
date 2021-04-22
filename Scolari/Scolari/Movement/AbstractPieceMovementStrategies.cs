@@ -52,6 +52,7 @@ namespace Jhaturanga_CSharp.Movement
                 it++;
                 if (!IsPositionEmpty(actualPos, board, piece))
                 {
+                    destinations.Add(actualPos);
                     break;
                 }
             }
