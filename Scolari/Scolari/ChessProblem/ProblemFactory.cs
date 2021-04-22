@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Jhaturanga_CSharp.Board;
+using Jhaturanga_CSharp.Boards;
 
 namespace Jhaturanga_CSharp.ChessProblem
 {

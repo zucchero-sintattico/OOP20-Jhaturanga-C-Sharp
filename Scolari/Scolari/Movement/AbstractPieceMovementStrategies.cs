@@ -5,7 +5,7 @@ using System.Collections;
 using System.Linq;
 using Jhaturanga_CSharp.Movement.MovementManaging;
 using Jhaturanga_CSharp.Movement;
-using Jhaturanga_CSharp.Board;
+using Jhaturanga_CSharp.Boards;
 
 namespace Jhaturanga_CSharp.Movement
 {

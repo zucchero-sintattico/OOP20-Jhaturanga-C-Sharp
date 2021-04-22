@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Jhaturanga_CSharp.Board
+namespace Jhaturanga_CSharp.Boards
 {
     class Board : IBoard
     {
@@ -51,7 +51,7 @@ namespace Jhaturanga_CSharp.Board
             return null;
         }
 
-        public ISet<IPiece> getPieces()
+        public ISet<IPiece> GetPieces()
         {
             return new HashSet<IPiece>(this.piecesOnBoard);
         }

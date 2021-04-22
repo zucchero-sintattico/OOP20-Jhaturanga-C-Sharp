@@ -1,4 +1,4 @@
-﻿using Jhaturanga_CSharp.Board;
+﻿using Jhaturanga_CSharp.Boards;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Jhaturanga_CSharp.Board
+namespace Jhaturanga_CSharp.Boards
 {
     public interface IBoard
     {
         int Columns { get; }
         int Rows { get; }
 
-        ISet<IPiece> getPieces();
+        ISet<IPiece> GetPieces();
 
         IPiece GetPieceAtPosition(IBoardPosition boardPosition);
 

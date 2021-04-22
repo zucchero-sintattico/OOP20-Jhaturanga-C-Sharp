@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Jhaturanga_CSharp.Movement.MovementManaging;
 
-namespace Jhaturanga_CSharp.Board
+namespace Jhaturanga_CSharp.Boards
 {
     class StartingBoardFactory : IStartingBoardFactory
     {

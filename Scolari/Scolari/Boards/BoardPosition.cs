@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Jhaturanga_CSharp.Board
+namespace Jhaturanga_CSharp.Boards
 {
     public class BoardPosition : IBoardPosition
     {

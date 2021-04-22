@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Jhaturanga_CSharp.Movement;
-using Jhaturanga_CSharp.Board;
+using Jhaturanga_CSharp.Boards;
 using Jhaturanga_CSharp.Movement.MovementManaging;
 using Jhaturanga_CSharp.Pieces;
 

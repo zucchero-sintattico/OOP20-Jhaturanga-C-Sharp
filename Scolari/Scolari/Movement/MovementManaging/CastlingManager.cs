@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Jhaturanga_CSharp.Board;
+using Jhaturanga_CSharp.Boards;
 
 namespace Jhaturanga_CSharp.Movement.MovementManaging
 {
@@ -65,7 +65,7 @@ namespace Jhaturanga_CSharp.Movement.MovementManaging
 
         private IPiece GetClosestRookInRangeThatHasntMovedYet(IPieceMovement mov)
         {
-            foreach(IPiece piece in this.gameController.GetBoard().getPieces())
+            foreach(IPiece piece in this.gameController.GetBoard().GetPieces())
             {
                 if(piece.Type.Equals(PieceType.ROOK) && Math.Abs(piece.PiecePosition.X - mov.Destination.X) <= 2
                             && piece.PiecePosition.Y == mov.Destination.Y
