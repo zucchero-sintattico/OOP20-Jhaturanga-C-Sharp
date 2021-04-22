@@ -26,5 +26,16 @@ namespace Jhaturanga_CSharp.Movement.MovementManaging
         {
             return "PlayerImpl [color=" + this.Color + ", user=" + this.User + "]";
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Player player &&
+                   Color == player.Color;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Color);
+        }
     }
 }

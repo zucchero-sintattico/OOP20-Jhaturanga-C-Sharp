@@ -41,16 +41,21 @@ namespace Jhaturanga_CSharp.Movement
 
         protected static ISet<IBoardPosition> DestinationsFromFunction(Func<IBoardPosition, IBoardPosition> function, IPiece piece, IBoard board, int limit)
         {
-            ArrayList destinations = new ArrayList();
-            var skip = function(piece.PiecePosition);
+            IList<IBoardPosition> destinations = new List<IBoardPosition>();
+            var actualPos = function(piece.PiecePosition);
             int it = 0;
-            while (it<=limit && IsPositionEmpty(skip, board, piece) && board.Contains(skip))
+
+            while (it < limit && board.Contains(actualPos))
             {
-                skip = function(skip);
-                destinations.Add(skip);
+                destinations.Add(actualPos);
+                actualPos = function(actualPos);
                 it++;
+                if (!IsPositionEmpty(actualPos, board, piece))
+                {
+                    break;
+                }
             }
-            return (destinations.Cast<IBoardPosition>().Where(e => IsEnemyOrEmpty(e, board, piece)).ToHashSet());
+            return (destinations.Cast<IBoardPosition>().Where(e => !IsEnemyOrEmpty(e, board, piece)).ToHashSet());
         }
 
         private static bool IsEnemyOrEmpty(IBoardPosition pos, IBoard board, IPiece piece)

@@ -11,12 +11,12 @@ namespace Jhaturanga_CSharp
     public class ClassicPieceMovementStrategies : AbstractPieceMovementStrategies
     {
 
-        private class BishopStrategy : IMovementStrategy
+        private class PawnStrategy : IMovementStrategy
         {
             private readonly IPiece piece;
             private readonly int SINGLE_INCREMENT = 1;
             private readonly int DOUBLE_INCREMENT = 2;
-            public BishopStrategy(IPiece piece)
+            public PawnStrategy(IPiece piece)
             {
                 this.piece = piece;
             }
@@ -117,6 +117,101 @@ namespace Jhaturanga_CSharp
             }
         }
 
+        private class QueenStrategy : IMovementStrategy
+        {
+            private readonly IPieceMovementStrategies movStr = new ClassicPieceMovementStrategies();
+            private readonly IPiece piece;
+            public QueenStrategy(IPiece piece)
+            {
+                this.piece = piece;
+            }
+
+            public ISet<IBoardPosition> GetPossibleMoves(IBoard board)
+            {
+                int limit = board.Columns + board.Rows;
+                ISet<IBoardPosition> positions = new HashSet<IBoardPosition>();
+
+                positions.UnionWith(movStr.PieceMovementStrategy(new Piece(PieceType.ROOK, piece.PiecePosition, piece.Player)).GetPossibleMoves(board));
+                positions.UnionWith(movStr.PieceMovementStrategy(new Piece(PieceType.BISHOP, piece.PiecePosition, piece.Player)).GetPossibleMoves(board));
+
+                return positions;
+            }
+        }
+
+        private class KnightStrategy : IMovementStrategy
+        {
+            private readonly IPiece piece;
+            private readonly int SINGLE_INCREMENT = 1;
+            private readonly int DOUBLE_INCREMENT = 2;
+            public KnightStrategy(IPiece piece)
+            {
+                this.piece = piece;
+            }
+
+            public ISet<IBoardPosition> GetPossibleMoves(IBoard board)
+            {
+                ISet<IBoardPosition> positions = new HashSet<IBoardPosition>();
+                IList<int> directions1 = new List<int>() { SINGLE_INCREMENT , -SINGLE_INCREMENT };
+                IList<int> directions2 = new List<int>() { DOUBLE_INCREMENT, -DOUBLE_INCREMENT };
+
+                foreach(int single in directions1)
+                {
+                    foreach(int byTwo in directions2)
+                    {
+                        positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + single, pos.Y + byTwo), piece, board, SINGLE_INCREMENT));
+                        positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + byTwo, pos.Y + single), piece, board, SINGLE_INCREMENT));
+                    }
+                }
+                return positions;
+            }
+        }
+
+        private class RookStrategy : IMovementStrategy
+        {
+            private readonly IPiece piece;
+            private readonly int SINGLE_INCREMENT = 1;
+            public RookStrategy(IPiece piece)
+            {
+                this.piece = piece;
+            }
+
+            public ISet<IBoardPosition> GetPossibleMoves(IBoard board)
+            {
+                int limit = board.Columns + board.Rows;
+                ISet<IBoardPosition> positions = new HashSet<IBoardPosition>();
+
+                positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X, pos.Y + SINGLE_INCREMENT), piece, board, limit));
+                positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X, pos.Y - SINGLE_INCREMENT), piece, board, limit));
+                positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + SINGLE_INCREMENT, pos.Y), piece, board, limit));
+                positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X - SINGLE_INCREMENT, pos.Y), piece, board, limit));
+
+                return positions;
+            }
+        }
+
+        private class BishopStrategy : IMovementStrategy
+        {
+            private readonly IPiece piece;
+            private readonly int SINGLE_INCREMENT = 1;
+            public BishopStrategy(IPiece piece)
+            {
+                this.piece = piece;
+            }
+
+            public ISet<IBoardPosition> GetPossibleMoves(IBoard board)
+            {
+                int limit = board.Columns + board.Rows;
+                ISet<IBoardPosition> positions = new HashSet<IBoardPosition>();
+
+                positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + SINGLE_INCREMENT, pos.Y + SINGLE_INCREMENT), piece, board, limit));
+                positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X + SINGLE_INCREMENT, pos.Y - SINGLE_INCREMENT), piece, board, limit));
+                positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X - SINGLE_INCREMENT, pos.Y + SINGLE_INCREMENT), piece, board, limit));
+                positions.UnionWith(DestinationsFromFunction(pos => new BoardPosition(pos.X - SINGLE_INCREMENT, pos.Y - SINGLE_INCREMENT), piece, board, limit));
+
+                return positions;
+            }
+        }
+
         public static bool PieceDistanceFromPositionLessThan(IPiece piece,
         IBoardPosition positionFromWhichCalculateDistance, int distanceMathModule)
         {
@@ -129,34 +224,34 @@ namespace Jhaturanga_CSharp
             return new BoardPosition(Math.Abs(p1.X - p2.X), Math.Abs(p1.Y - p2.Y));
         }
 
+        protected override IMovementStrategy PawnMovementStrategy(IPiece piece)
+        {
+            return new PawnStrategy(piece);
+        }
+
+        protected override IMovementStrategy KingMovementStrategy(IPiece piece)
+        {
+            return new KingStrategy(piece);
+        }
+
+        protected override IMovementStrategy KnightMovementStrategy(IPiece piece)
+        {
+            return new KnightStrategy(piece);
+        }
+
         protected override IMovementStrategy BishopMovementStrategy(IPiece piece)
         {
             return new BishopStrategy(piece);
         }
 
-        protected override IMovementStrategy KingMovementStrategy(IPiece piece)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override IMovementStrategy KnightMovementStrategy(IPiece piece)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override IMovementStrategy PawnMovementStrategy(IPiece piece)
-        {
-            throw new NotImplementedException();
-        }
-
         protected override IMovementStrategy QueenMovementStrategy(IPiece piece)
         {
-            throw new NotImplementedException();
+            return new QueenStrategy(piece);
         }
 
         protected override IMovementStrategy RookMovementStrategy(IPiece piece)
         {
-            throw new NotImplementedException();
+            return new RookStrategy(piece);
         }
     }
 }

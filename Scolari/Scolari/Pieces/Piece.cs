@@ -28,5 +28,18 @@ namespace Jhaturanga_CSharp.Pieces
             this.Player = piecePlayerOwner;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Piece piece &&
+                   Type == piece.Type &&
+                   EqualityComparer<IBoardPosition>.Default.Equals(PiecePosition, piece.PiecePosition) &&
+                   EqualityComparer<IPlayer>.Default.Equals(Player, piece.Player) &&
+                   HasMoved == piece.HasMoved;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Type, PiecePosition, Player, HasMoved);
+        }
     }
 }
