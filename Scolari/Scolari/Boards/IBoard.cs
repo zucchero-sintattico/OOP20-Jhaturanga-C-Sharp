@@ -9,7 +9,7 @@ namespace Jhaturanga_CSharp.Boards
         int Columns { get; }
         int Rows { get; }
 
-        ISet<IPiece> GetPieces();
+        ISet<IPiece> getPieces();
 
         IPiece GetPieceAtPosition(IBoardPosition boardPosition);
 

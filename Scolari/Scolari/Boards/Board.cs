@@ -51,7 +51,7 @@ namespace Jhaturanga_CSharp.Boards
             return null;
         }
 
-        public ISet<IPiece> GetPieces()
+        public ISet<IPiece> getPieces()
         {
             return new HashSet<IPiece>(this.piecesOnBoard);
         }

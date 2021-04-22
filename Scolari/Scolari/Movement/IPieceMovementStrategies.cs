@@ -9,8 +9,8 @@ namespace Jhaturanga_CSharp.Movement
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="piece"></param>
-        /// <returns></returns>
+        /// <param name="piece">the piece of which we want to have it's MovementStrategy</param>
+        /// <returns>the PieceMovementStrategy of the passed piece</returns>
         IMovementStrategy PieceMovementStrategy(IPiece piece);
     }
 }
