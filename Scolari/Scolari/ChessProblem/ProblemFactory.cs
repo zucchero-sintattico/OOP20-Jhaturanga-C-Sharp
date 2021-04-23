@@ -9,7 +9,7 @@ namespace Scolari.ChessProblem
     public class ProblemFactory : IProblemFactory
     {
 
-        private IList<IBasicMovement> GenerateMovementsFromString(string movements)
+        private static IList<IBasicMovement> GenerateMovementsFromString(string movements)
         {
 
             IList<IBasicMovement> possibleDestinations = new List<IBasicMovement>();
@@ -39,27 +39,27 @@ namespace Scolari.ChessProblem
 
         public IProblem ProblemFive(IPlayerPair players)
         {
-            return new Problem(this.GenerateMovementsFromString("7-0,7-7/6-7,7-7/3-0,7-4/7-7,6-7/7-4,7-6"), new StartingBoardFactory().ProblemFiveBoard(players));
+            return new Problem(GenerateMovementsFromString("7-0,7-7/6-7,7-7/3-0,7-4/7-7,6-7/7-4,7-6"), new StartingBoardFactory().ProblemFiveBoard(players));
         }
 
         public IProblem ProblemFour(IPlayerPair players)
         {
-            return new Problem(this.GenerateMovementsFromString("1-6,5-2/6-2,5-2/2-3,4-3"), new StartingBoardFactory().ProblemFourBoard(players));
+            return new Problem(GenerateMovementsFromString("1-6,5-2/6-2,5-2/2-3,4-3"), new StartingBoardFactory().ProblemFourBoard(players));
         }
 
         public IProblem ProblemOne(IPlayerPair players)
         {
-            return new Problem(this.GenerateMovementsFromString("5-3,4-4/3-6,4-6/4-3,7-6"), new StartingBoardFactory().ProblemOneBoard(players));
+            return new Problem(GenerateMovementsFromString("5-3,4-4/3-6,4-6/4-3,7-6"), new StartingBoardFactory().ProblemOneBoard(players));
         }
 
         public IProblem ProblemThree(IPlayerPair players)
         {
-            return new Problem(this.GenerateMovementsFromString("7-7,1-1/3-0,4-0/1-1,2-0"), new StartingBoardFactory().ProblemThreeBoard(players));
+            return new Problem(GenerateMovementsFromString("7-7,1-1/3-0,4-0/1-1,2-0"), new StartingBoardFactory().ProblemThreeBoard(players));
         }
 
         public IProblem ProblemTwo(IPlayerPair players)
         {
-            return new Problem(this.GenerateMovementsFromString("3-6,3-7/7-5,5-6/5-7,5-6"), new StartingBoardFactory().ProblemTwoBoard(players));
+            return new Problem(GenerateMovementsFromString("3-6,3-7/7-5,5-6/5-7,5-6"), new StartingBoardFactory().ProblemTwoBoard(players));
         }
     }
 }
