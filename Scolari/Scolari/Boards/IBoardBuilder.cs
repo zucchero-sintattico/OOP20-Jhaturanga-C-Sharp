@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Scolari.Pieces;
 
-namespace Jhaturanga_CSharp.Boards
+namespace Scolari.Boards
 {
-
-    interface IBoardBuilder
+    public interface IBoardBuilder
     {
         /// <summary>
         /// Used to set the columns numbers of the board to create

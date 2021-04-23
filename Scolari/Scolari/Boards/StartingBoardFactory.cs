@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using Jhaturanga_CSharp.Movement.MovementManaging;
+using Scolari.Movement.MovementManaging;
+using Scolari.Pieces;
+using Scolari.Util;
 
-namespace Jhaturanga_CSharp.Boards
+namespace Scolari.Boards
 {
     class StartingBoardFactory : IStartingBoardFactory
     {

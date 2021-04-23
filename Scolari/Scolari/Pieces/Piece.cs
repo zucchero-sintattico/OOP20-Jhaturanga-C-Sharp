@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using Jhaturanga_CSharp.Boards;
-using Jhaturanga_CSharp.Movement.MovementManaging;
+using Scolari.Boards;
+using Scolari.Util;
 
-namespace Jhaturanga_CSharp.Pieces
+namespace Scolari.Pieces
 {
     public class Piece : IPiece
     {

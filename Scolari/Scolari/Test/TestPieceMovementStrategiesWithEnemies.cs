@@ -1,11 +1,10 @@
-﻿using Jhaturanga_CSharp.Boards;
-using Jhaturanga_CSharp.Movement;
-using Jhaturanga_CSharp.Movement.MovementManaging;
-using Jhaturanga_CSharp.Pieces;
-using NUnit.Framework;
-using System;
+﻿using NUnit.Framework;
+using Scolari.Boards;
+using Scolari.Movement;
+using Scolari.Pieces;
+using Scolari.Util;
 
-namespace Jhaturanga_CSharp.Test
+namespace Scolari.Test
 {
 
     public class TestPieceMovementStrategiesWithEnemies
@@ -35,7 +34,7 @@ namespace Jhaturanga_CSharp.Test
         [Test]
         public void TestWhitePawnsCapture()
         {
-            IBoardBuilder boardBuilder = new BoardBuilder();
+        IBoardBuilder boardBuilder = new BoardBuilder();
 
             IBoard board = boardBuilder.Columns(8).Rows(8)
                 .AddPiece(new Piece(PieceType.PAWN, new BoardPosition(1, 1), this.whitePlayer))

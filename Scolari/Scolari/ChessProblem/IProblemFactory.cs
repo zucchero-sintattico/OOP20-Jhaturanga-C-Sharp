@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Jhaturanga_CSharp.Movement.MovementManaging;
+﻿using Scolari.Movement.MovementManaging;
+using Scolari.Util;
 
-namespace Jhaturanga_CSharp.ChessProblem
+namespace Scolari.ChessProblem
 {
     public interface IProblemFactory
     {

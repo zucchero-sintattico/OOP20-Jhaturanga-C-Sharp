@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Jhaturanga_CSharp.Boards;
+﻿using System.Collections.Generic;
+using Scolari.Boards;
+using Scolari.Pieces;
 
-namespace Jhaturanga_CSharp.Movement.MovementManaging
+namespace Scolari.Movement.MovementManaging
 {
     public interface IMovementHandlerStrategy
     {

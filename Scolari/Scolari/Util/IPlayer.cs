@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Scolari.Movement.MovementManaging;
+using Scolari.Pieces;
 
-namespace Jhaturanga_CSharp.Movement.MovementManaging
+namespace Scolari.Util
 {
     public interface IPlayer
     {

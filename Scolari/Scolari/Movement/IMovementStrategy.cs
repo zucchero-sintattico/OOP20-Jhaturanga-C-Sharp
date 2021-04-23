@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Jhaturanga_CSharp.Boards;
+﻿using System.Collections.Generic;
+using Scolari.Boards;
 
-namespace Jhaturanga_CSharp.Movement
+namespace Scolari.Movement
 {
     public interface IMovementStrategy
     {

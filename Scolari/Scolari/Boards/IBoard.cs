@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using Scolari.Pieces;
 
-namespace Jhaturanga_CSharp.Boards
+namespace Scolari.Boards
 {
     public interface IBoard
     {

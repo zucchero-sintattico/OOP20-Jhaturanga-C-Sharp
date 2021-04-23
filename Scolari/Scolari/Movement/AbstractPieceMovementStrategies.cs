@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Collections;
 using System.Linq;
-using Jhaturanga_CSharp.Movement.MovementManaging;
-using Jhaturanga_CSharp.Movement;
-using Jhaturanga_CSharp.Boards;
+using Scolari.Boards;
+using Scolari.Pieces;
 
-namespace Jhaturanga_CSharp.Movement
+namespace Scolari.Movement
 {
     public abstract class AbstractPieceMovementStrategies : IPieceMovementStrategies
     {

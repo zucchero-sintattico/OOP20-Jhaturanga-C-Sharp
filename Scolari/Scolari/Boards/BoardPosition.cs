@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Jhaturanga_CSharp.Boards
+namespace Scolari.Boards
 {
     public class BoardPosition : IBoardPosition
     {

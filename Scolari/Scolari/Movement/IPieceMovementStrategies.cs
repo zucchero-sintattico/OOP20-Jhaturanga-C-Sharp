@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Scolari.Pieces;
 
-namespace Jhaturanga_CSharp.Movement
+namespace Scolari.Movement
 {
     public interface IPieceMovementStrategies
     {

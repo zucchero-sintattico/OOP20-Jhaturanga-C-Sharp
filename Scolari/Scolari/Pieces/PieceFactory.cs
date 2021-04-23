@@ -1,10 +1,8 @@
-﻿using Jhaturanga_CSharp.Boards;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Jhaturanga_CSharp.Movement.MovementManaging;
+﻿using System;
+using Scolari.Boards;
+using Scolari.Util;
 
-namespace Jhaturanga_CSharp.Pieces
+namespace Scolari.Pieces
 {
     class PieceFactory : IPieceFactory
     {

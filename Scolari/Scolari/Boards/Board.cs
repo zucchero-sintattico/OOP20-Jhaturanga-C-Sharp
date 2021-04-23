@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using Scolari.Pieces;
 
-namespace Jhaturanga_CSharp.Boards
+namespace Scolari.Boards
 {
-    class Board : IBoard
+    public class Board : IBoard
     {
         public int Columns { get; }
-
         public int Rows { get; }
 
         private readonly IList<IPiece> piecesOnBoard = new List<IPiece>();

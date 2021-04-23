@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using Jhaturanga_CSharp.Movement;
 using System.Linq;
-using Jhaturanga_CSharp.Boards;
-using Jhaturanga_CSharp.Movement.MovementManaging;
-using Jhaturanga_CSharp.Pieces;
+using Scolari.Boards;
+using Scolari.Pieces;
+using Scolari.Util;
 
-namespace Jhaturanga_CSharp
+namespace Scolari.Movement
 {
     public class ClassicPieceMovementStrategies : AbstractPieceMovementStrategies
     {
@@ -88,8 +86,8 @@ namespace Jhaturanga_CSharp
                     IPiece firstPieceToCheck = board.GetPieceAtPosition(new BoardPosition(piece.PiecePosition.X - DOUBLE_INCREMENT, piece.PiecePosition.Y));
                     IPiece secondPieceToCheck = board.GetPieceAtPosition(new BoardPosition(piece.PiecePosition.X + DOUBLE_INCREMENT, piece.PiecePosition.Y));
                     // Extra control on the castle
-                    if (firstPieceToCheck != null)
-                        {
+                    if (firstPieceToCheck != null) 
+                    {
                         positions.Remove(firstPieceToCheck.PiecePosition);
                     } 
                     if(secondPieceToCheck != null)

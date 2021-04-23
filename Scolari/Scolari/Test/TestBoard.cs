@@ -1,12 +1,9 @@
-﻿using Jhaturanga_CSharp.Boards;
-using Jhaturanga_CSharp.Movement;
-using Jhaturanga_CSharp.Movement.MovementManaging;
-using Jhaturanga_CSharp.Pieces;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
+using Scolari.Boards;
+using Scolari.Pieces;
 
-namespace Jhaturanga_CSharp.Test
+namespace Scolari.Test
 {
 
     public class TestBoard
