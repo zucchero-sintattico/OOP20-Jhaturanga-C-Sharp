@@ -15,10 +15,10 @@ namespace oop_2021.replay
         public List<Board> Boards { get; }
         public GameType GameType { get; }
 
-        public ReplayData(String matchID, DateTime date, User whiteUser, User blackUser,
+        public ReplayData(String matchId, DateTime date, User whiteUser, User blackUser,
              List<Board> boards, GameType gameType)
         {
-            this.MatchId = matchID;
+            this.MatchId = matchId;
             this.Date = date;
             this.WhiteUser = whiteUser;
             this.BlackUser = blackUser;

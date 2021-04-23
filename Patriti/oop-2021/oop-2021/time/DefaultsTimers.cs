@@ -4,7 +4,6 @@
     {
         OneMinutes = 60,
         TenSecond = 10
-
     }
 
 }

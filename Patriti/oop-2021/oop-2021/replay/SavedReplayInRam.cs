@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace oop_2021.replay
 {
     public class SavedReplayInRam : ISavedReplay
     {
-        readonly HashSet<ReplayData> _boardSet;
+        private readonly HashSet<ReplayData> _boardSet;
+        
         public SavedReplayInRam()
         {
             _boardSet = new HashSet<ReplayData>();
@@ -18,13 +20,7 @@ namespace oop_2021.replay
 
         public ReplayData GetSavedReplay(string matchId)
         {
-            foreach (ReplayData board in _boardSet) {
-                if (string.Equals(matchId, board.MatchId)) {
-                    return board;
-                }
-            }
-            return null;
-
+            return _boardSet.FirstOrDefault(board => string.Equals(matchId, board.MatchId));
         }
 
         public void Save(ReplayData replayData)

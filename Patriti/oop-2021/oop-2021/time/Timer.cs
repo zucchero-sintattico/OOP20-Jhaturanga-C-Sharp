@@ -7,13 +7,13 @@ namespace oop_2021.time
     public class Timer : ITimer
     {
 
-        private readonly Dictionary<IPlayer, double> _playersTimers;
+        private readonly IDictionary<IPlayer, double> _playersTimers;
         private bool _isRunning = true;
         private IPlayer _actualPlayerTimer;
         private long _initialUnixTime;
         private static readonly DateTime Jan1St1970 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
-        public Timer(Dictionary<IPlayer, double> playersTimers)
+        public Timer(IDictionary<IPlayer, double> playersTimers)
         {
             this._playersTimers = playersTimers;
         }
@@ -23,7 +23,7 @@ namespace oop_2021.time
             if (player.Equals(this._actualPlayerTimer))
             {
                 double numberOfSecondsUsed = (DateTime.UtcNow - Jan1St1970).TotalSeconds - _initialUnixTime;
-                double remainingSecond = _playersTimers.GetValueOrDefault(_actualPlayerTimer) - numberOfSecondsUsed;
+                double remainingSecond = _playersTimers[_actualPlayerTimer] - numberOfSecondsUsed;
                 if (remainingSecond < 0)
                 {
                     remainingSecond = 0;

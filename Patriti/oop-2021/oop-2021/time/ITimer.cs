@@ -35,8 +35,6 @@ namespace oop_2021.time
         /// </summary>
         /// <param name="player">the player which want to switch to</param>
         void SwitchPlayer(IPlayer player);
-
-
-
+        
     }
 }

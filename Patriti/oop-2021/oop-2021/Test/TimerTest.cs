@@ -15,7 +15,7 @@ namespace oop_2021.Test
 
             IPlayer player1 = new Player();
             IPlayer player2 = new Player();
-            Dictionary<IPlayer, double> mapTest = new Dictionary<IPlayer, double>(){
+            IDictionary<IPlayer, double> mapTest = new Dictionary<IPlayer, double>(){
                     { player1, 10 },
                     { player2, 10 },
                 };
