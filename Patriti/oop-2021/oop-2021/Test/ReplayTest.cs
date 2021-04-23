@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using oop_2021.replay;
 using oop_2021.utility;
 using Xunit;
-namespace oop_2021
+
+namespace oop_2021.Test
 
 {
     public class ReplayTest
     {
-
-
+        
         [Fact]
         public void ReplayTest1()
         {
             ReplayData replay = new ReplayDataBuilder()
                 .Date(DateTime.Now)
                 .GameType(new GameType())
-                .MatchID("10")
+                .MatchId("10")
                 .WhiteUser(new User())
                 .BlackUser(new User())
                 .Boards(new List<Board>())
                 .Build();
-            Assert.Equal("10", replay.MatchID);
+            Assert.Equal("10", replay.MatchId);
         }
 
 
@@ -31,7 +31,7 @@ namespace oop_2021
             ReplayData replay = new ReplayDataBuilder()
                 .Date(DateTime.Now)
                 .GameType(new GameType())
-                .MatchID("10")
+                .MatchId("10")
                 .WhiteUser(new User())
                 .BlackUser(new User())
                 .Boards(new List<Board>())
@@ -39,7 +39,7 @@ namespace oop_2021
 
             ISavedReplay myReplay = new SavedReplayInRam();
             myReplay.Save(replay);
-            Assert.Equal("10", myReplay.GetSavedReplay("10").MatchID);
+            Assert.Equal("10", myReplay.GetSavedReplay("10").MatchId);
         }
 
 

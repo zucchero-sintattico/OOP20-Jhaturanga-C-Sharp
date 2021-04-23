@@ -5,21 +5,21 @@ namespace oop_2021.replay
 {
     public class SavedReplayInRam : ISavedReplay
     {
-        readonly HashSet<ReplayData> boardSet;
+        readonly HashSet<ReplayData> _boardSet;
         public SavedReplayInRam()
         {
-            boardSet = new HashSet<ReplayData>();
+            _boardSet = new HashSet<ReplayData>();
         }
 
         public HashSet<ReplayData> GetAllBoards()
         {
-            return boardSet;
+            return _boardSet;
         }
 
-        public ReplayData GetSavedReplay(string matchID)
+        public ReplayData GetSavedReplay(string matchId)
         {
-            foreach (ReplayData board in boardSet) {
-                if (string.Equals(matchID, board.MatchID)) {
+            foreach (ReplayData board in _boardSet) {
+                if (string.Equals(matchId, board.MatchId)) {
                     return board;
                 }
             }
@@ -29,7 +29,7 @@ namespace oop_2021.replay
 
         public void Save(ReplayData replayData)
         {
-            this.boardSet.Add(replayData);
+            this._boardSet.Add(replayData);
         }
     }
 }

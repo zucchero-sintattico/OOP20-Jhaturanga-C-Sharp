@@ -5,7 +5,7 @@ using oop_2021.utility;
 using Xunit;
 using Timer = oop_2021.time.Timer;
 
-namespace oop_2021
+namespace oop_2021.Test
 {
     public class TimerTest
     {
@@ -22,10 +22,10 @@ namespace oop_2021
 
             ITimer timer = new Timer(mapTest);
 
-            Assert.Equal(10, (int)timer.GetRemaningTime(player1));
+            Assert.Equal(10, (int)timer.GetRemainingTime(player1));
             timer.Start(player1);
             Thread.Sleep(1000);
-            Assert.Equal(8, (int)timer.GetRemaningTime(player1));
+            Assert.Equal(8, (int)timer.GetRemainingTime(player1));
         }
 
 
@@ -45,11 +45,11 @@ namespace oop_2021
             TimerFactory timerFattory = new TimerFactory();
             ITimer timer = timerFattory.EqualTimer(players, 10);
 
-            Assert.Equal(10, (int)timer.GetRemaningTime(player1));
+            Assert.Equal(10, (int)timer.GetRemainingTime(player1));
             timer.Start(player1);
             timer.SwitchPlayer(player2);
             Thread.Sleep(1000);
-            Assert.Equal(8, (int)timer.GetRemaningTime(player2));
+            Assert.Equal(8, (int)timer.GetRemainingTime(player2));
         }
 
 

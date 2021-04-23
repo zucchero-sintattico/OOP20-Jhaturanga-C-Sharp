@@ -8,67 +8,53 @@ namespace oop_2021.replay
     {
        
 
-        private string matchID;
+        private string _matchId;
+        private DateTime _date;
+        private User _whiteUser;
+        private User _blackUser;
+        private List<Board> _boards;
+        private GameType _gameType;
 
-
-        private DateTime date;
-
-
-        private User whiteUser;
-
-
-        private User blackUser;
-
-
-        private List<Board> boards;
-
-     
-        private GameType gameType;
-
-        public ReplayDataBuilder MatchID( string matchID)
+        public ReplayDataBuilder MatchId(string matchId)
         {
-            this.matchID = matchID;
+            this._matchId = matchId;
             return this;
         }
 
         public ReplayDataBuilder Date( DateTime date)
         {
-            this.date = date;
+            this._date = date;
             return this;
         }
-
-
+        
         public ReplayDataBuilder WhiteUser( User whiUser)
         {
-            this.whiteUser = whiUser;
+            this._whiteUser = whiUser;
             return this;
         }
 
         public ReplayDataBuilder BlackUser( User blackUser)
         {
-            this.blackUser = blackUser;
+            this._blackUser = blackUser;
             return this;
 
         }
-
-
+        
         public ReplayDataBuilder Boards( List<Board> boards)
         {
-            this.boards = boards;
+            this._boards = boards;
             return this;
         }
-
         
         public ReplayDataBuilder GameType( GameType gameType)
         {
-            this.gameType = gameType;
+            this._gameType = gameType;
             return this;
         }
-
-
+        
         public ReplayData Build()
         {
-            return new ReplayData(matchID, date, whiteUser, blackUser, boards, gameType);
+            return new ReplayData(_matchId, _date, _whiteUser, _blackUser, _boards, _gameType);
         }
     }
 }

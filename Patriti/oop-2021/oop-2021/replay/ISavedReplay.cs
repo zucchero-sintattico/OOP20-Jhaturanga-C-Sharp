@@ -5,28 +5,24 @@ namespace oop_2021.replay
 {
     public interface ISavedReplay
     {
-
-         /**
-         * Saving board.
-         *
-         * <param> replayData to saving.</param>
-         * 
-         */
+        
+        /// <summary>
+        /// Saving board.
+        /// </summary>
+        /// <param name="replayData">replayData to saving</param>
         void Save(ReplayData replayData);
 
-        /**
-         * Gets the saved replay.
-         *
-         * <param>matchID the match ID</param>
-         * <return>board witch have this ID</return>
-         */
-        ReplayData GetSavedReplay(String matchID);
-
-        /**
-         * Gets the all boards.
-         *
-         * @return all saved boards.
-         */
+        /// <summary>
+        /// Gets the saved replay
+        /// </summary>
+        /// <param name="matchId">the match ID</param>
+        /// <returns>board with the specified ID</returns>
+        ReplayData GetSavedReplay(string matchId);
+        
+        /// <summary>
+        /// gets all the boards
+        /// </summary>
+        /// <returns>all saved boards</returns>
         HashSet<ReplayData> GetAllBoards();
 
     }

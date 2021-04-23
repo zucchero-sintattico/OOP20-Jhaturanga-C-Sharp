@@ -6,25 +6,20 @@ namespace oop_2021.time
 {
     public interface ITimerFactory
     {
-
-        /**
-        * <summary>Equal timer for every player.</summary>
-        *
-        * <param> players  players how wont assign timer</param>
-        * <param> duration of timer in second</param>
-        * <returns> timer</returns>
-        */
-
+        /// <summary>
+        /// Equal timer for every player.
+        /// </summary>
+        /// <param name="players">the players</param>
+        /// <param name="duration">the duration of the timer in seconds</param>
+        /// <returns>the timer</returns>
         Timer EqualTimer(List<IPlayer> players, double duration);
 
-
-
-        /**
-        * <summary>From timer map: <player, player time>.</summary>
-        *
-        * <param> playersTimer to assign every player with a personal time</param>
-        * <returns>timer</returns>
-        */
-        Timer FromTimerMap(Dictionary<IPlayer, Double> playersTimer);
+        
+        /// <summary>
+        /// Generate a timer from the specified Dictionary of Player -> Time
+        /// </summary>
+        /// <param name="playersTimer">the dictionary Player -> Time</param>
+        /// <returns>the timer</returns>
+        Timer FromTimerMap(Dictionary<IPlayer, double> playersTimer);
     }
 }

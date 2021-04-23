@@ -2,8 +2,8 @@
 {
     public enum DefaultsTimers
     {
-        ONE_MINUTES = 60,
-        TEN_SECOND = 10
+        OneMinutes = 60,
+        TenSecond = 10
 
     }
 
