@@ -8,15 +8,15 @@ namespace Scolari.Boards
 {
     class StartingBoardFactory : IStartingBoardFactory
     {
-        private static readonly int CLASSIC_BOARD_COLUMNS = 8;
-        private static readonly int CLASSIC_BOARD_ROWS = 8;
-        private static readonly int ONE_D_BOARD_COLUMNS = 1;
-        private static readonly int THREECOL_BOARD_COLUMNS = 3;
+        private const int CLASSIC_BOARD_COLUMNS = 8;
+        private const int CLASSIC_BOARD_ROWS = 8;
+        private const int ONE_D_BOARD_COLUMNS = 1;
+        private const int THREECOL_BOARD_COLUMNS = 3;
 
         private static readonly IDictionary<string, PieceType> letterToPieceType = new Dictionary<string, PieceType>() { { "k", PieceType.KING }, { "q", PieceType.QUEEN }, { "b",
         PieceType.BISHOP }, { "r", PieceType.ROOK }, { "p", PieceType.PAWN }, { "n", PieceType.KNIGHT } };
 
-        private readonly Func<string, PieceType> FromLetterToPieceType = letter => letterToPieceType[letter.ToLower()];
+        private readonly Func<string, PieceType> _fromLetterToPieceType = letter => letterToPieceType[letter.ToLower()];
 
         private IBoard FromStringToBoard(IPlayerPair players, string board, int columns, int rows)
         {
@@ -41,7 +41,7 @@ namespace Scolari.Boards
 
         private IPiece GetPieceFromComponents(IPlayerPair players, string letter, int x, int y)
         {
-            return this.ChoosePlayerOwner(players, letter).PieceFactory.PieceFromPieceType(this.FromLetterToPieceType(letter), new BoardPosition(x, y));
+            return this.ChoosePlayerOwner(players, letter).PieceFactory.PieceFromPieceType(this._fromLetterToPieceType(letter), new BoardPosition(x, y));
         }
 
         private IPlayer ChoosePlayerOwner(IPlayerPair players, string letter)
