@@ -7,6 +7,7 @@ using static OOP20.validator.StringValidator.ValidationResult;
 using static OOP20.EnumMessage;
 using OOP20.user;
 using System.Text;
+using OOP20.user.builder;
 
 namespace OOP20
 {

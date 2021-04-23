@@ -1,5 +1,6 @@
 ﻿using OOP20.user;
 using System;
+using OOP20.user.builder;
 using Xunit;
 
 namespace Test

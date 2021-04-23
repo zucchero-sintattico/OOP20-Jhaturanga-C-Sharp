@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OOP20.user
+﻿namespace OOP20.user.builder
 {
     public interface IUserBuilder
     {
