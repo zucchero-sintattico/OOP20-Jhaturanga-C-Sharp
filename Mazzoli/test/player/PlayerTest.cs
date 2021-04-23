@@ -18,15 +18,15 @@ namespace Mazzoli.test.player
         [Test]
         public void ColorTest()
         {
-            IPlayer player = new Player(this._user, PlayerColor.White);
-            Assert.AreEqual(player.Color, PlayerColor.White);
-            Assert.AreNotEqual(player.Color, PlayerColor.Black);
+            IPlayer player = new Player(this._user, PlayerColor.WHITE);
+            Assert.AreEqual(player.Color, PlayerColor.WHITE);
+            Assert.AreNotEqual(player.Color, PlayerColor.BLACK);
         }
 
         [Test]
         public void UserTest()
         {
-            IPlayer player = new Player(this._user, PlayerColor.White);
+            IPlayer player = new Player(this._user, PlayerColor.WHITE);
             Assert.AreEqual(player.User, this._user);
         }
         

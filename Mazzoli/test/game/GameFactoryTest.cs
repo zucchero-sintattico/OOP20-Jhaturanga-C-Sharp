@@ -16,8 +16,8 @@ namespace Mazzoli.test.game
         [SetUp]
         public void SetUp()
         {
-            this._players = new PlayerPair(new Player(new User("Alessandro"), PlayerColor.White),
-                new Player(new User("Tommaso"), PlayerColor.Black));
+            this._players = new PlayerPair(new Player(new User("Alessandro"), PlayerColor.WHITE),
+                new Player(new User("Tommaso"), PlayerColor.BLACK));
         }
         
         [Test]

@@ -21,8 +21,8 @@ namespace Mazzoli.test.player
         [Test]
         public void RightColorTest()
         {
-            IPlayer whitePlayer = new Player(this._firstUser, PlayerColor.White);
-            IPlayer blackPlayer = new Player(this._secondUser, PlayerColor.Black);
+            IPlayer whitePlayer = new Player(this._firstUser, PlayerColor.WHITE);
+            IPlayer blackPlayer = new Player(this._secondUser, PlayerColor.BLACK);
             Assert.Throws<System.ArgumentException>(() =>
             {
                 IPlayerPair playerPair = new PlayerPair(blackPlayer, whitePlayer);

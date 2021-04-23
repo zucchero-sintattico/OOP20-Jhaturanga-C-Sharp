@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Mazzoli.player
@@ -13,13 +14,13 @@ namespace Mazzoli.player
         public PlayerPair(IPlayer whitePlayer, IPlayer blackPlayer)
         {
             // Check that the whitePlayer is really a white Player and blackPlayer is really a Black Player.
-            if (!whitePlayer.Color.Equals(PlayerColor.White))
+            if (!whitePlayer.Color.Equals(PlayerColor.WHITE))
             {
-                throw new System.ArgumentException("White Player should be WHITE");
+                throw new ArgumentException("White Player should be WHITE");
             }
-            if (!blackPlayer.Color.Equals(PlayerColor.Black))
+            if (!blackPlayer.Color.Equals(PlayerColor.BLACK))
             {
-                throw new System.ArgumentException("Black Player should be BLACK");
+                throw new ArgumentException("Black Player should be BLACK");
             }
             this.WhitePlayer = whitePlayer;
             this.BlackPlayer = blackPlayer;

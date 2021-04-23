@@ -26,8 +26,8 @@ namespace Mazzoli.test.game
         [Test]
         public void GetNewGameInstance()
         {
-            IPlayerPair players = new PlayerPair(new Player(new User("Alessandro"), PlayerColor.White),
-                new Player(new User("Stefano"), PlayerColor.Black));
+            IPlayerPair players = new PlayerPair(new Player(new User("Alessandro"), PlayerColor.WHITE),
+                new Player(new User("Stefano"), PlayerColor.BLACK));
             
             Assert.AreEqual(GameType.CLASSIC.GetNewGameInstance(players).Type, GameType.CLASSIC);
             Assert.AreEqual(GameType.PAWN_HORDE.GetNewGameInstance(players).Type, GameType.PAWN_HORDE);

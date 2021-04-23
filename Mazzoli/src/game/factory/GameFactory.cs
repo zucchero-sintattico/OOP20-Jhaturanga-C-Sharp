@@ -19,7 +19,7 @@ namespace Mazzoli.game.factory
 
 
 
-        private IGame AllClassicDifferentBoard(IPlayerPair players, IBoard startingBoard, 
+        private static IGame AllClassicDifferentBoard(IPlayerPair players, IBoard startingBoard, 
             GameType type) {
             IGameController gameController = new ClassicGameController(startingBoard,
                 new ClassicNoCastlingPieceMovementStrategies(), players);

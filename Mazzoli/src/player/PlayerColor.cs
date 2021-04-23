@@ -6,7 +6,7 @@ namespace Mazzoli.player
     /// </summary>
     public enum PlayerColor
     {
-        White,
-        Black
+        WHITE,
+        BLACK
     }
 }

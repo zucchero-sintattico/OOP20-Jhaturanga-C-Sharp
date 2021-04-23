@@ -1,3 +1,4 @@
+using System;
 using Mazzoli.game.type;
 using Mazzoli.game.util;
 
@@ -33,12 +34,12 @@ namespace Mazzoli.game.builder
         {
             if (_built)
             {
-                throw new System.SystemException("Already Built");
+                throw new SystemException("Already Built");
             }
 
             if (this._type == null || this._gameController == null || this._movementManager == null)
             {
-                throw new System.SystemException("All fields must be specified");
+                throw new SystemException("All fields must be specified");
             }
 
             this._built = true;
