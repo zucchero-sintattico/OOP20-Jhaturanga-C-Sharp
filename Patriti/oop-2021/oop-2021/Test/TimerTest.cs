@@ -22,10 +22,10 @@ namespace oop_2021.Test
 
             ITimer timer = new Timer(mapTest);
 
-            Assert.Equal(10, (int)timer.GetRemainingTime(player1));
-            timer.Start(player1);
+            Assert.Equal(10, (int)timer.GetRemainingTime(player2));
+            timer.Start(player2);
             Thread.Sleep(1000);
-            Assert.Equal(8, (int)timer.GetRemainingTime(player1));
+            Assert.Equal(8, (int)timer.GetRemainingTime(player2));
         }
 
 
@@ -45,11 +45,11 @@ namespace oop_2021.Test
             TimerFactory timerFattory = new TimerFactory();
             ITimer timer = timerFattory.EqualTimer(players, 10);
 
-            Assert.Equal(10, (int)timer.GetRemainingTime(player1));
+            Assert.Equal(10, (int) timer.GetRemainingTime(player1));
             timer.Start(player1);
             timer.SwitchPlayer(player2);
-            Thread.Sleep(1000);
-            Assert.Equal(8, (int)timer.GetRemainingTime(player2));
+            Thread.Sleep(2000);
+            Assert.Equal(7, (int) timer.GetRemainingTime(player2));
         }
 
 

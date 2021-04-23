@@ -20,6 +20,6 @@ namespace oop_2021.time
         /// </summary>
         /// <param name="playersTimer">the dictionary Player -> Time</param>
         /// <returns>the timer</returns>
-        Timer FromTimerMap(Dictionary<IPlayer, double> playersTimer);
+        Timer FromTimerMap(IDictionary<IPlayer, double> playersTimer);
     }
 }

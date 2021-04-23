@@ -22,7 +22,7 @@ namespace oop_2021.time
         {
             if (player.Equals(this._actualPlayerTimer))
             {
-                double numberOfSecondsUsed = (DateTime.UtcNow - Jan1St1970).TotalSeconds - _initialUnixTime;
+                double numberOfSecondsUsed = (DateTime.UtcNow - Jan1St1970).TotalSeconds - this._initialUnixTime;
                 double remainingSecond = _playersTimers[_actualPlayerTimer] - numberOfSecondsUsed;
                 if (remainingSecond < 0)
                 {
@@ -52,8 +52,9 @@ namespace oop_2021.time
 
         public void SwitchPlayer(IPlayer player)
         {
+            double actualRemaingTime = GetRemainingTime(_actualPlayerTimer);
             this._playersTimers.Remove(_actualPlayerTimer);
-            this._playersTimers.Add(_actualPlayerTimer, GetRemainingTime(_actualPlayerTimer));
+            this._playersTimers.Add(_actualPlayerTimer, actualRemaingTime);
             this.Start(player);
         }
     }

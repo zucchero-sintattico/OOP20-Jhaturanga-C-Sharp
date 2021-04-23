@@ -8,13 +8,13 @@ namespace oop_2021.time
     {
         public Timer EqualTimer(List<IPlayer> players, double duration)
         {
-            Dictionary<IPlayer, double> playerTimerMap = new Dictionary<IPlayer, double>();
+            IDictionary<IPlayer, double> playerTimerMap = new Dictionary<IPlayer, double>();
 
             players.ForEach((elem) => playerTimerMap.Add(elem, duration));
             return this.FromTimerMap(playerTimerMap);
         }
 
-        public Timer FromTimerMap(Dictionary<IPlayer, double> playersTimer)
+        public Timer FromTimerMap(IDictionary<IPlayer, double> playersTimer)
         {
             return new Timer(playersTimer);
         }
